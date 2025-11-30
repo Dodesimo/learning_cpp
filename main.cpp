@@ -1,18 +1,21 @@
 #include <iostream>
 
+int addTwoNumbers(int x, int y) {
+
+    int result {};
+    result = x + y;
+    return result;
+
+}
+
 int main() {
 
-   //basic calculator
-   int firstNumber {};
-   int secondNumber {};
-   int sum {};
-
-   std::cout << "Enter your first number";
-   std::cin >> firstNumber;
-   std::cout << "Enter your second number";
-   std::cin >> secondNumber;
-   sum = firstNumber + secondNumber;
-   std::cout << sum;
-
-
+    int firstNumber {};
+    int secondNumber {};
+    std::cout << "enter a number";
+    std::cin >> firstNumber;
+    std::cout << "enter a second number";
+    std::cin >> secondNumber;
+    std::cout << addTwoNumbers(firstNumber, secondNumber);
+    return 0;
 }

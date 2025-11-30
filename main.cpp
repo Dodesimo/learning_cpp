@@ -1,12 +1,6 @@
 #include <iostream>
 
-int addTwoNumbers(int x, int y) {
-
-    int result {};
-    result = x + y;
-    return result;
-
-}
+int addTwoNumbers(int x, int y);
 
 int main() {
 
@@ -18,4 +12,12 @@ int main() {
     std::cin >> secondNumber;
     std::cout << addTwoNumbers(firstNumber, secondNumber);
     return 0;
+}
+
+int addTwoNumbers(int x, int y) {
+
+    int result {};
+    result = x + y;
+    return result;
+
 }

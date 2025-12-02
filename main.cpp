@@ -4,7 +4,10 @@
 
 int main() {
 
-    std::cout << std::setprecision(17);
-    float x {4.283183921893281392819382193819381391};
-    std::cout << x;
+    bool b {};
+    std::cout << "Enter a boolean value: ";
+    std::cin >> std::boolalpha;
+    std::cin >> b;
+    std::cout << "Boolean value: " << b;
+
 }

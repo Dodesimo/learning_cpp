@@ -3,12 +3,7 @@
 
 int main() {
 
-    int firstNumber {};
-    int secondNumber {};
-    std::cout << "enter a number";
-    std::cin >> firstNumber;
-    std::cout << "enter a second number";
-    std::cin >> secondNumber;
-    std::cout << addTwoNumbers(firstNumber, secondNumber);
-    return 0;
+    unsigned int x {2};
+    unsigned int y {3};
+    std::cout << x - y;
 }

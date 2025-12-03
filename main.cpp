@@ -1,13 +1,14 @@
 #include <iomanip>
 #include <iostream>
-#include "add.h"
+#include "check.h"
 
 int main() {
-
-    bool b {};
-    std::cout << "Enter a boolean value: ";
-    std::cin >> std::boolalpha;
+    int a {};
+    int b {};
+    std::cout << "Enter the first number: ";
+    std::cin >> a;
+    std::cout << "Enter the second number: ";
     std::cin >> b;
-    std::cout << "Boolean value: " << b;
-
+    std::cout << std::boolalpha;
+    std::cout << "The two numbers are equal: " << isEqual(a, b);
 }

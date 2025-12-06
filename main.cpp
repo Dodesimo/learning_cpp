@@ -1,9 +1,9 @@
-#include <bitset>
-#include <iomanip>
 #include <iostream>
 #include <print>
+#include <string>
 #include "check.h"
 
 int main() {
-    std::cout << std::format("{:b}", 0b1010);
+    std::string a {"alex"};
+    std::cout << a;
 }

@@ -12,7 +12,6 @@ void printString(std::string_view s) {
 
 
 int main() {
-    std::string a {"testing"};
-    std::string_view b {a};
-    printString(b);
+    std::string_view a {"testing"};
+    std::cout << static_cast<std::string>(a);
 }

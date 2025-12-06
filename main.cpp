@@ -3,12 +3,9 @@
 #include "check.h"
 
 int main() {
-    int a {};
-    int b {};
-    std::cout << "Enter the first number: ";
-    std::cin >> a;
-    std::cout << "Enter the second number: ";
-    std::cin >> b;
-    std::cout << std::boolalpha;
-    std::cout << "The two numbers are equal: " << isEqual(a, b);
+    float a {12.1232123};
+    int b {static_cast<int>(a)};
+    std::cout << a;
+    std::cout << '\n';
+    std::cout << b;
 }

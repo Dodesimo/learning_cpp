@@ -1,9 +1,9 @@
 #include <bitset>
 #include <iomanip>
 #include <iostream>
+#include <print>
 #include "check.h"
 
 int main() {
-    std::bitset<8> a {5};
-    std::cout << a;
+    std::cout << std::format("{:b}", 0b1010);
 }

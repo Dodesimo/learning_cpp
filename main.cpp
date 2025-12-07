@@ -5,14 +5,11 @@
 #include "check.h"
 
 int main() {
-    std::string a {"apple"};
-    std::string_view b {a};
+    constexpr int a {2};
+    constexpr int b {4};
 
-    std::cout << b << '\n';
-    b.remove_prefix(1);
-    std::cout << b << '\n';
-    b.remove_suffix(2);
-    std::cout << b << '\n';
-    b = static_cast<std::string_view>(a);
-    std::cout << b << '\n';
+    std::cout << a / b;
+    std::cout << static_cast<float>(a) / b << '\n';
+    std::cout << a / static_cast<float>(b) << '\n';
+    std::cout << static_cast<float>(a) / static_cast<float>(b) << '\n';
 }

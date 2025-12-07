@@ -4,14 +4,15 @@
 #include <string_view>
 #include "check.h"
 
-void printString(std::string_view s) {
-
-    std::cout << s;
-
-}
-
-
 int main() {
-    std::string_view a {"testing"};
-    std::cout << static_cast<std::string>(a);
+    std::string a {"apple"};
+    std::string_view b {a};
+
+    std::cout << b << '\n';
+    b.remove_prefix(1);
+    std::cout << b << '\n';
+    b.remove_suffix(2);
+    std::cout << b << '\n';
+    b = static_cast<std::string_view>(a);
+    std::cout << b << '\n';
 }

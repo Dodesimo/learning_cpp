@@ -1,10 +1,24 @@
 #include <iostream>
 
-int doSomething(int a, int b);
+namespace Goo {
+    int doSomething (int a, int b) {
+
+        return a - b;
+
+    }
+}
+
+namespace Foo {
+    int doSomething(int a, int b) {
+
+        return a + b;
+
+    }
+}
 
 int main() {
 
-    std::cout << doSomething(3, 2);
+    std::cout << Foo::doSomething(3, 2);
     return 0;
 
 }

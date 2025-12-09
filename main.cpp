@@ -1,15 +1,16 @@
 #include <iostream>
 
-int apple {5};
+void incrementPrint() {
+
+    static int a {1};
+    ++a;
+    std::cout << a;
+
+}
 
 int main() {
-
-    std::cout << apple;
-
-    {
-
-        int apple {8};
-        std::cout << ::apple;
-
-    }
+    incrementPrint();
+    incrementPrint();
+    incrementPrint();
+    return 0;
 }

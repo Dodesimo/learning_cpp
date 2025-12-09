@@ -1,5 +1,7 @@
 #include <iostream>
 
+constexpr int a;
+
 namespace Goo {
     int doSomething (int a, int b) {
 

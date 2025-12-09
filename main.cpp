@@ -1,15 +1,18 @@
 #include <iostream>
 
-namespace {
+int accumulate(int x) {
 
-    int a {3};
-    int b {3};
+    static int sum {0};
+    sum += x;
+    return sum;
 
 }
 
 int main() {
 
-    std::cout << a;
-    std::cout << b;
-    return 0;
+    std::cout << accumulate(4) << '\n';
+    std::cout << accumulate(3) << '\n';
+    std::cout << accumulate(2) << '\n';
+    std::cout << accumulate(1) << '\n';
+
 }

@@ -1,8 +1,15 @@
 #include <iostream>
 
-int main() {
-    using std::cout;
+namespace {
 
-    cout << "test";
+    int a {3};
+    int b {3};
+
+}
+
+int main() {
+
+    std::cout << a;
+    std::cout << b;
     return 0;
 }

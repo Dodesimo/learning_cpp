@@ -18,7 +18,8 @@ namespace Foo {
 
 int main() {
 
-    std::cout << Foo::doSomething(3, 2);
+    namespace active = Foo;
+    std::cout << active::doSomething(3, 2);
     return 0;
 
 }

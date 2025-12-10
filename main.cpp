@@ -3,11 +3,8 @@
 
 int main() {
 
-    int a {};
-    do {
+    for (int i {0}; i < 10; ++i) {
+        std::cout << i << '\n';
+    }
 
-        std::cout << "Enter a number: ";
-        std::cin >> a;
-
-    } while (a % 2 == 1);
 }

@@ -8,7 +8,7 @@ int main() {
     while (counter < 26) {
 
         std::cout << "Character: " << static_cast<char>(c + counter) << "," << "ASCII value: " << c + counter << '\n';
-        counter += 1;
+        ++counter;
 
     }
 }

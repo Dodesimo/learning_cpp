@@ -3,14 +3,12 @@
 
 int main() {
 
-    int counter {1};
-    while (counter < 100) {
-        std::cout << "iteration #: " << counter << '\n';
-        if (counter % 10 == 0) {
-            std::cout << "This iteration is divisible by ten\n";
-        }
-        counter += 1;
-    }
+    char c {97};
+    int counter {0};
+    while (counter < 26) {
 
-    return 0;
+        std::cout << "Character: " << static_cast<char>(c + counter) << "," << "ASCII value: " << c + counter << '\n';
+        counter += 1;
+
+    }
 }

@@ -1,18 +1,17 @@
 #include <iostream>
 
-int accumulate(int x) {
-
-    static int sum {0};
-    sum += x;
-    return sum;
-
-}
-
 int main() {
 
-    std::cout << accumulate(4) << '\n';
-    std::cout << accumulate(3) << '\n';
-    std::cout << accumulate(2) << '\n';
-    std::cout << accumulate(1) << '\n';
+    constexpr double gravity (9.8);
+
+    if constexpr (gravity == 9.8) {
+
+        std::cout << "obv evals";
+
+    } else {
+
+        std::cout << "doesn't eval";
+
+    }
 
 }

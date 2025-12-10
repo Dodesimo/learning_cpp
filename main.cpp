@@ -1,15 +1,23 @@
 #include <iostream>
-#include <string.h>
 
-int main() {
+void fizzBuzz(int x) {
 
-    {
-        int i {0}; //this is required because the counter variable loses scope outside loop
-        while (i < 10) {
-            std::cout << i;
-            ++i;
+    for (int i {1}; i <= x; ++i) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            std::cout << "fizzbuzz\n";
+        } else if (i % 3 == 0) {
+            std::cout << "fizz\n";
+        } else if (i % 5 == 0) {
+            std::cout << "buzz\n";
+        } else {
+            std::cout << i << '\n';
         }
-
     }
 
+
+}
+
+int main() {
+    fizzBuzz(15);
+    return 0;
 }

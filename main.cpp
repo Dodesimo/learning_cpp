@@ -1,19 +1,10 @@
 #include <iostream>
-
-void fizzBuzz(int x) {
-
-
-
-}
+#include <random>
 
 int main() {
-    while (true) {
-
-        int a {};
-        std::cout << "Enter a number, 0 to exit";
-        std::cin >> a;
-        if (a == 0) break;
-
+    std::mt19937 mt {};
+    for (int i {0}; i < 10; ++i) {
+        std::cout << mt() << '\n';
     }
     return 0;
 }

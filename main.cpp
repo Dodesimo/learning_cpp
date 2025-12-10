@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string.h>
 
-std::string returnString (int x) {
+void returnString (int x) {
 
     switch (x) {
 
         case 1:
-            return std::string {"One"};
+            std::cout << std::string {"One"};
         case 2:
-            return std::string {"Two"};
+            std::cout << std::string {"Two"};
+            [[fallthrough]];
         case 3:
-            return std::string {"Three"};
+            std::cout << std::string {"Three"};
         default:
-            return std::string{"Not real"};
+            std::cout << std::string{"Not real"};
 
     }
 
@@ -20,7 +21,7 @@ std::string returnString (int x) {
 
 int main() {
 
-    std::cout << returnString(2);
+    returnString(2);
     return 0;
 
 }

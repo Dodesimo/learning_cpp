@@ -2,22 +2,18 @@
 
 void fizzBuzz(int x) {
 
-    for (int i {1}; i <= x; ++i) {
-        if (i % 3 == 0 && i % 5 == 0) {
-            std::cout << "fizzbuzz\n";
-        } else if (i % 3 == 0) {
-            std::cout << "fizz\n";
-        } else if (i % 5 == 0) {
-            std::cout << "buzz\n";
-        } else {
-            std::cout << i << '\n';
-        }
-    }
 
 
 }
 
 int main() {
-    fizzBuzz(15);
+    while (true) {
+
+        int a {};
+        std::cout << "Enter a number, 0 to exit";
+        std::cin >> a;
+        if (a == 0) break;
+
+    }
     return 0;
 }

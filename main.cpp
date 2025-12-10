@@ -3,12 +3,11 @@
 
 int main() {
 
-    char c {97};
-    int counter {0};
-    while (counter < 26) {
+    int a {};
+    do {
 
-        std::cout << "Character: " << static_cast<char>(c + counter) << "," << "ASCII value: " << c + counter << '\n';
-        ++counter;
+        std::cout << "Enter a number: ";
+        std::cin >> a;
 
-    }
+    } while (a % 2 == 1);
 }

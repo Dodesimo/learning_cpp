@@ -3,22 +3,14 @@
 
 int main() {
 
-    int count {1};
-
-    while (count < 11) {
-
-        if (count % 2 == 1) {
-
-            std::cout << "odd\n";
-
-        } else {
-
-            std::cout << "even\n";
-
+    int counter {1};
+    while (counter < 100) {
+        std::cout << "iteration #: " << counter;
+        if (counter % 10 == 0) {
+            std::cout << "This iteration is divisible by ten";
         }
-
-        count += 1;
-
+        counter += 1;
     }
 
+    return 0;
 }

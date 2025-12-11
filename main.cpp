@@ -1,10 +1,14 @@
 #include <iostream>
 #include <random>
+#include <chrono>
 
 int main() {
-    std::mt19937 mt {};
-    for (int i {0}; i < 10; ++i) {
-        std::cout << mt() << '\n';
+    std::mt19937 mt {static_cast<std::mt19937::result_type>(
+    std::chrono::steady_clock::now().time_since_epoch().count()
+    )};
+    std::uniform_int_distribution<int> die {1, 6};
+
+    for (int count {1}; count < 10; ++count) {
+        std::cout << die(mt) << '\n';
     }
-    return 0;
 }

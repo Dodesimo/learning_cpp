@@ -4,11 +4,12 @@
 #include <limits>
 #include <cassert>
 
+int addTwoNumbers (int x, int y) {
+    return x + y;
+}
+
 int main() {
-    typedef int integer;
-    integer a {};
-    std::cout << "here's an integer";
-    std::cin >> a;
+    auto a {addTwoNumbers(2, 3)};
     std::cout << a;
     return 0;
 }

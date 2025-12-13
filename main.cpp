@@ -4,9 +4,22 @@
 #include <limits>
 
 int main() {
-    std::cout << "enter a single number";
+
     double a {};
-    std::cin >> a;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //flush the buffer of all remaining max possible characters up to and including an empty character.
+
+    while (true) {
+        std::cout << "enter a single number";
+        std::cin >> a;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            continue;
+        } else {
+            break;
+        }
+
+    }
+
+    std::cout << a;
 }

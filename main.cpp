@@ -5,20 +5,12 @@
 #include <cassert>
 
 
-double divide(int x, int y) {
-    assert(y != 0 && "can't divide by 0!");
-    return static_cast<double>(x) / y;
-
+void printDouble(double d) {
+    std::cout << d;
 }
 
 int main() {
-    int x {};
-    int y {};
-    std::cout << "Enter first number. \n";
-    std::cin >> x;
-
-    std::cout << "Enter second number. \n";
-    std::cin >> y;
-
-    std::cout << divide(x, y);
+    printDouble(5.0);
+    pritnDouble(4.0f); //floating point numerical conversion
+    return 0;
 }

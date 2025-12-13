@@ -5,8 +5,10 @@
 #include <cassert>
 
 int main() {
-    int x {-5};
-    unsigned y {x}; //reinterpretive conversion
-
+    using integer = int;
+    integer a {};
+    std::cout << "here's an integer";
+    std::cin >> a;
+    std::cout << a;
     return 0;
 }

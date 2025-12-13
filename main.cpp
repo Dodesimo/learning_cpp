@@ -4,12 +4,9 @@
 #include <limits>
 #include <cassert>
 
-
-void printInt(int x) {
-    std::cout << x;
-}
-
 int main() {
-    printInt(false); //we can convert a bool to an integer through integral numerical promotion
+    int x {-5};
+    unsigned y {x}; //reinterpretive conversion
+
     return 0;
 }

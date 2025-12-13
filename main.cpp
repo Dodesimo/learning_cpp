@@ -3,28 +3,17 @@
 #include <chrono>
 #include <limits>
 
-int main() {
 
-    double a {};
+double divide(int x, int y) {
 
-    while (true) {
-        std::cout << "enter a single number";
-        std::cin >> a;
-
-        if (std::cin.fail()) {
-
-            if (std::cin.eof()) {
-                std::exit(0); //if user enters an EOF character, we exit from the program
-            }
-
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        } else {
-            break;
-        }
-
+    if (y == 0) {
+        std::cerr << "Invalid division by 0";
     }
 
-    std::cout << a;
+    return static_cast<double>(x) / y;
+
+}
+
+int main() {
+    return 0;
 }

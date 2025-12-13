@@ -5,7 +5,7 @@
 #include <cassert>
 
 int main() {
-    using integer = int;
+    typedef int integer;
     integer a {};
     std::cout << "here's an integer";
     std::cin >> a;

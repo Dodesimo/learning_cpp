@@ -5,12 +5,11 @@
 #include <cassert>
 
 
-void printDouble(double d) {
-    std::cout << d;
+void printInt(int x) {
+    std::cout << x;
 }
 
 int main() {
-    printDouble(5.0);
-    printDouble(4.0f); //floating point numerical conversion
+    printInt(false); //we can convert a bool to an integer through integral numerical promotion
     return 0;
 }

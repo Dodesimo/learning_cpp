@@ -11,6 +11,6 @@ void printDouble(double d) {
 
 int main() {
     printDouble(5.0);
-    pritnDouble(4.0f); //floating point numerical conversion
+    printDouble(4.0f); //floating point numerical conversion
     return 0;
 }

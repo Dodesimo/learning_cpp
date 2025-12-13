@@ -6,7 +6,7 @@
 
 
 double divide(int x, int y) {
-    assert(y != 0);
+    assert(y != 0 && "can't divide by 0!");
     return static_cast<double>(x) / y;
 
 }

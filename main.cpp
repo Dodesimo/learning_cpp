@@ -1,12 +1,12 @@
 #include <iostream>
 #include <random>
 #include <chrono>
+#include <limits>
 
 int main() {
-    std::mt19937 mt {std::random_device{}()};
-    std::uniform_int_distribution<int> die {1, 6};
-
-    for (int count {1}; count < 10; ++count) {
-        std::cout << die(mt) << '\n';
-    }
+    std::cout << "enter a single number";
+    double a {};
+    std::cin >> a;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    //flush the buffer of all remaining max possible characters up to and including an empty character.
 }

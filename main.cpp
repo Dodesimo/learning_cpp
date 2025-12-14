@@ -3,14 +3,9 @@
 #include <chrono>
 #include <limits>
 #include <cassert>
-
-template <auto N>
-void print() {
-    std::cout << N << '\n';
-}
+#include "foo.h"
 
 int main() {
-    print<3>();
-    print<'c'>();
+    printMax<int>(2, 3);
     return 0;
 }

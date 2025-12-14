@@ -4,18 +4,12 @@
 #include <limits>
 #include <cassert>
 
-
-template <typename T>
-void print(T a) {
-    std::cout << a << '\n';
-}
-
-void print(bool a) {
-    std::cout << std::boolalpha << a << '\n';
+template <typename T, typename U>
+T max (T a, U b) {
+    return (a > b) ? a : b;
 }
 
 int main() {
-    print<bool>(true);
-    print<>(true);
-    print(true);
+    std::cout << max(2, 3.0);
+    return 0;
 }

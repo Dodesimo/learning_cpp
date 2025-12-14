@@ -4,8 +4,7 @@
 #include <limits>
 #include <cassert>
 
-template <typename T, typename U>
-T max (T a, U b) {
+auto max(auto a, auto b) {
     return (a > b) ? a : b;
 }
 

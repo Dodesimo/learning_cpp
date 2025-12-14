@@ -4,12 +4,10 @@
 #include <limits>
 #include <cassert>
 
-void print(int x, int y = 5) {
-    std::cout << x << ' ' << y << '\n';
+template <typename T>
+T max (T x, T y) {
+    return (x > y) ? x : y;
 }
-
 int main() {
-    print(2);
-    print(2, 3);
-    return 0;
+    std::cout << max<int>(2, 4);
 }

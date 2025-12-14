@@ -4,10 +4,18 @@
 #include <limits>
 #include <cassert>
 
+
 template <typename T>
-T max (T x, T y) {
-    return (x > y) ? x : y;
+void print(T a) {
+    std::cout << a << '\n';
 }
+
+void print(bool a) {
+    std::cout << std::boolalpha << a << '\n';
+}
+
 int main() {
-    std::cout << max<int>(2, 4);
+    print<bool>(true);
+    print<>(true);
+    print(true);
 }

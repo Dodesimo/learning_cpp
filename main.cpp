@@ -4,11 +4,12 @@
 #include <limits>
 #include <cassert>
 
-auto max(auto a, auto b) {
-    return (a > b) ? a : b;
+template <int N>
+void print() {
+    std::cout << N << '\n';
 }
 
 int main() {
-    std::cout << max(2, 3.0);
+    print<3>();
     return 0;
 }

@@ -7,8 +7,8 @@
 
 int main() {
     int x {5};
-    int& ref {x}; //x is a lvalue, we created a lvalue reference variable (alias)
-    std::cout << x << '\n';
+    const int& ref {x};
     std::cout << ref << '\n';
-
+    x = 2;
+    std::cout << x << '\n';
 }

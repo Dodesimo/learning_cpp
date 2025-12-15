@@ -1,14 +1,11 @@
 #include <iostream>
-#include <random>
-#include <chrono>
-#include <limits>
-#include <cassert>
-#include "foo.h"
+#include <string.h>
+
+void printString (std::string& s) {
+    std::cout << s << '\n';
+}
 
 int main() {
-    int x {5};
-    const int& ref {x};
-    std::cout << ref << '\n';
-    x = 2;
-    std::cout << x << '\n';
+    std::string a {"testing"};
+    printString(a); //so rather than make a copy of a as a parameter into print string, we create a reference of it (serves as an alias)
 }

@@ -1,14 +1,15 @@
 #include <iostream>
 #include <string.h>
 
-const int& factoryID() {
-    static int id {};
-    ++id;
-    return id;
+void demo(int x, int& a, int& b) {
+    std::cout << x;
+    a = 5;
+    b = 5;
 }
 
 int main() {
-    int& firstId {factoryID()}; //makes a copy
-    int& secondId {factoryID()}; //makes a copy
-    std::cout << firstId << '\n' << secondId;
+    int a{};
+    int b{};
+    demo(5, a, b);
+    std::cout << '\n' << a << '\n' << b;
 }

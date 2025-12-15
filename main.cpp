@@ -6,5 +6,5 @@ int main() {
     double* pointerD {&d};
 
     std::cout << &d << '\n';
-    std::cout << pointerD << '\n';
+    std::cout << *pointerD << '\n';
 }

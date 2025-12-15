@@ -5,7 +5,7 @@ void printDouble(double d) {
     std::cout << d << '\n';
 }
 
-void printDoubleReference(double& d) {
+void printDoubleReference(const double& d) {
     std::cout << d << '\n';
 }
 

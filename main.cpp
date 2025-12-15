@@ -4,7 +4,9 @@
 int main() {
     double d {2.0};
     double* pointerD {&d};
+    std::cout << *pointerD << '\n';
 
-    std::cout << &d << '\n';
+    double a {3.0};
+    pointerD = &a;
     std::cout << *pointerD << '\n';
 }

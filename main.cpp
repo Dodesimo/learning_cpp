@@ -1,11 +1,16 @@
 #include <iostream>
 #include <string.h>
 
-void printString (std::string& s) {
-    std::cout << s << '\n';
+void printDouble(double d) {
+    std::cout << d << '\n';
+}
+
+void printDoubleReference(double& d) {
+    std::cout << d << '\n';
 }
 
 int main() {
-    std::string a {"testing"};
-    printString(a); //so rather than make a copy of a as a parameter into print string, we create a reference of it (serves as an alias)
+    double d {2.0};
+    printDouble(d); //gets copied into here
+    printDoubleReference(d); //pass in by reference, so the parameter is an alias for d
 }

@@ -1,16 +1,13 @@
 #include <iostream>
 #include <string.h>
 
-void printNumber (const int * i = nullptr) {
-    if (i) {
-        std::cout << *i << '\n';
-    } else {
-        std::cout << "nothing was passed in";
-    }
+void nullify (int*& p) {
+    p = nullptr;
 }
 int main() {
     int a {5};
-    printNumber(&a);
-    int* aNull {};
-    printNumber(aNull);
+    int* aRef {&a};
+    std::cout << aRef << '\n';
+    nullify(aRef);
+    std::cout << aRef;
 }

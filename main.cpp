@@ -2,11 +2,24 @@
 #include <string.h>
 
 int main() {
-    double d {2.0};
-    double* pointerD {&d};
-    std::cout << *pointerD << '\n';
+    int a {1};
+    int& refA {a};
+    int* pointA {&a};
 
-    double a {3.0};
-    pointerD = &a;
-    std::cout << *pointerD << '\n';
+    std::cout << a;
+    std::cout << refA;
+    std::cout << *pointA << '\n';
+
+    refA = 2;
+
+    std::cout << a;
+    std::cout << refA;
+    std::cout << *pointA << '\n';
+
+    *pointA = 3;
+
+    std::cout << a;
+    std::cout << refA;
+    std::cout << *pointA << '\n';
+
 }

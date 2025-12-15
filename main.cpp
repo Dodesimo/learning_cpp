@@ -6,6 +6,9 @@
 #include "foo.h"
 
 int main() {
-    printMax<int>(2, 3);
-    return 0;
+    int x {5};
+    int& ref {x}; //x is a lvalue, we created a lvalue reference variable (alias)
+    std::cout << x << '\n';
+    std::cout << ref << '\n';
+
 }

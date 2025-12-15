@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string.h>
 
-void nullify (int*& p) {
-    p = nullptr;
+const int& factoryID() {
+    static int id {};
+    ++id;
+    return id;
 }
+
 int main() {
-    int a {5};
-    int* aRef {&a};
-    std::cout << aRef << '\n';
-    nullify(aRef);
-    std::cout << aRef;
+    int& firstId {factoryID()}; //makes a copy
+    int& secondId {factoryID()}; //makes a copy
+    std::cout << firstId << '\n' << secondId;
 }

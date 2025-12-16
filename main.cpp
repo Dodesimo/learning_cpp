@@ -2,17 +2,16 @@
 #include <optional>
 #include <string.h>
 
-struct Employee {
-    int age {};
-    double wage {78.000}; //this is a default member initializer
+struct Test {
+    int a;
+    int b {}; //list initialization to 0 out?
+    int c {3}; //default member initialization};
 };
 
-std::ostream& operator<< (std::ostream& o, Employee& e) {
-    o << e.age << '\n' << e.wage;
-    return o;
-}
-
 int main() {
-    Employee e {2, 484.19};
-    std::cout << e;
+    Test testStruct {};
+    std::cout << testStruct.a << '\n';
+    std::cout << testStruct.b << '\n';
+    std::cout << testStruct.c << '\n';
+    return 0;
 }

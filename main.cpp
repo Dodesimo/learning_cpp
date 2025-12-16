@@ -2,23 +2,26 @@
 #include <optional>
 #include <string.h>
 
-namespace Color {
-    enum Color : std::int8_t { //this is essentially saying each enumerator is defined as an 8 bit integer
-        red,
-        blue,
-        white,
-    };
-}
+enum Color {
+    red,
+    blue,
+    yellow,
+};
 
-namespace Emotion {
-    enum Emotion {
-        red, //prevents naming collision through namespace definition
-        blue, //prevents naming collision through namespace definition
-        yellow,
-    };
+std::string_view getString(Color c) {
+    switch (c) {
+        case red:
+            return "red";
+        case blue:
+            return "blue";
+        case yellow:
+            return "yellow";
+        default:
+            return "Color does not exist";
+    }
 }
 
 int main() {
-    Emotion::Emotion a {static_cast<Emotion::Emotion>(1)};
-    std::cout << a << '\n';
+    Color c {red};
+    std::cout << getString(c) << '\n';
 }

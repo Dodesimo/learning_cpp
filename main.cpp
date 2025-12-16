@@ -2,18 +2,31 @@
 #include <optional>
 #include <string.h>
 
-struct Employee {
-    int age {2};
-    double salary {75000.11};
+struct Fraction {
+    int numerator {};
+    int denominator {};
 };
 
-void printEmployee(Employee& e) {
-    std::cout << e.age << '\n';
-    std::cout << e.salary << '\n';
+Fraction multiply (Fraction& a, Fraction&b) {
+    return Fraction{a.numerator * b.numerator, a.denominator * b.denominator};
 }
 
 int main() {
-    Employee a {.age = 3, .salary = 5};
-    printEmployee(a);
+    Fraction a {};
+    Fraction b {};
+
+    std::cout << "Enter a value for the numerator: ";
+    std::cin >> a.numerator;
+    std::cout << "Enter a value for the denominator: ";
+    std::cin >> a.denominator;
+    std::cout << "";
+    std::cout << "Enter a value for the numerator: ";
+    std::cin >> b.numerator;
+    std::cout << "Enter a value for the denominator: ";
+    std::cin >> b.denominator;
+
+    Fraction c {multiply(a, b)};
+    std::cout << "Your fractions multiplied together: " << c.numerator << '/' << c.denominator;
+
     return 0;
 }

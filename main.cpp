@@ -8,7 +8,7 @@ enum Color {
     yellow,
 };
 
-std::string_view getString(Color c) {
+std::string_view getStringFromColor(Color c) {
     switch (c) {
         case red:
             return "red";
@@ -21,8 +21,33 @@ std::string_view getString(Color c) {
     }
 }
 
+std::optional<Color> getColorFromString(std::string_view s) {
+    if (s == "red") {
+        return red;
+    } else if (s == "blue") {
+        return blue;
+    } else if (s == "yellow"){
+        return yellow;
+    }
+
+    return {};
+}
+
 std::ostream& operator<< (std::ostream& out, Color color) {
-    return out << getString(color);
+    return out << getStringFromColor(color);
+}
+
+std::istream& operator>> (std::istream& input, Color& color) {
+    std::string s {};
+    std::cin >> s;
+    std::optional<Color> value {getColorFromString(s)};
+    if (value) {
+        color = *value;
+        return input;
+    }
+    //if we don't get a match here, the input was invalid
+    input.setstate(std::ios_base::failbit);
+    return input;
 }
 
 int main() {

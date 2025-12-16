@@ -2,19 +2,16 @@
 #include <optional>
 #include <string.h>
 
-std::optional<double> divide (int a, int b) {
-    if (b == 0) {
-        return {};
-    }
-
-    return static_cast<float>(a)/b;
-}
-
+enum Color {
+    red,
+    blue,
+    white,
+};
 int main() {
-    std::optional<double> a {divide(5, 0)};
-    if (a.has_value()) {
-        std::cout << a.value() << '\n';
-    } else {
-        std::cout << "error";
-    }
+    Color a {red};
+    Color b {blue};
+    Color c {white};
+    std::cout << a << '\n';
+    std::cout << b << '\n';
+    std::cout << c << '\n';
 }

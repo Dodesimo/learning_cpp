@@ -1,0 +1,21 @@
+new line
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   main.cpp
+#
+# Untracked files:
+#	.gitignore
+#	cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-b5a24aaf58e5559e22d0.json
+#	cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-072d41abcb9b8fa625c6.json
+#	cmake-build-debug/.cmake/api/v1/reply/index-2025-11-29T22-15-37-0135.json
+#	cmake-build-debug/.cmake/api/v1/reply/target-learning_cpp-Debug-f89e96e3ed431b4dbecb.json
+#	cmake-build-debug/.ninja_deps
+#	cmake-build-debug/.ninja_log
+#	cmake-build-debug/CMakeFiles/learning_cpp.dir/
+#	learning_cpp
+#

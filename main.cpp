@@ -21,7 +21,11 @@ std::string_view getString(Color c) {
     }
 }
 
+std::ostream& operator<< (std::ostream& out, Color color) {
+    return out << getString(color);
+}
+
 int main() {
     Color c {red};
-    std::cout << getString(c) << '\n';
+    std::cout << c << '\n';
 }

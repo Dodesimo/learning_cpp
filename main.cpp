@@ -19,12 +19,6 @@ namespace Emotion {
 }
 
 int main() {
-    Color::Color a {Color::red};
-    Color::Color b {Color::red};
-    Color::Color c {Color::red};
-    Emotion::Emotion d {Emotion::blue};
+    Emotion::Emotion a {static_cast<Emotion::Emotion>(1)};
     std::cout << a << '\n';
-    std::cout << b << '\n';
-    std::cout << c << '\n';
-    std::cout << d << '\n';
 }

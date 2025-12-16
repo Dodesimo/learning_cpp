@@ -1,15 +1,20 @@
 #include <iostream>
+#include <optional>
 #include <string.h>
 
-void demo(int x, int& a, int& b) {
-    std::cout << x;
-    a = 5;
-    b = 5;
+std::optional<double> divide (int a, int b) {
+    if (b == 0) {
+        return {};
+    }
+
+    return static_cast<float>(a)/b;
 }
 
 int main() {
-    int a{};
-    int b{};
-    demo(5, a, b);
-    std::cout << '\n' << a << '\n' << b;
+    std::optional<double> a {divide(5, 0)};
+    if (a.has_value()) {
+        std::cout << a.value() << '\n';
+    } else {
+        std::cout << "error";
+    }
 }

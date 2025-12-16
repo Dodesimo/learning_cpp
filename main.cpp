@@ -2,16 +2,18 @@
 #include <optional>
 #include <string.h>
 
-struct Test {
-    int a;
-    int b {}; //list initialization to 0 out?
-    int c {3}; //default member initialization};
+struct Employee {
+    int age {2};
+    double salary {75000.11};
 };
 
+void printEmployee(Employee& e) {
+    std::cout << e.age << '\n';
+    std::cout << e.salary << '\n';
+}
+
 int main() {
-    Test testStruct {};
-    std::cout << testStruct.a << '\n';
-    std::cout << testStruct.b << '\n';
-    std::cout << testStruct.c << '\n';
+    Employee a {.age = 3, .salary = 5};
+    printEmployee(a);
     return 0;
 }

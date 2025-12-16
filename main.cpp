@@ -3,7 +3,7 @@
 #include <string.h>
 
 namespace Color {
-    enum Color {
+    enum Color : std::int8_t { //this is essentially saying each enumerator is defined as an 8 bit integer
         red,
         blue,
         white,

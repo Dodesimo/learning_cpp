@@ -2,24 +2,24 @@
 #include <optional>
 #include <string.h>
 
-template <typename T, typename U>
-struct Pair {
+template <typename T>
+struct Triad {
     T a {};
     T b {};
+    T c {};
 };
-//what is std::pair, a standard way to do typenames.
-template <typename T, typename U>
-constexpr T max(std::pair<T, U> p) {
-    if (p.first < p.second) {
-        return p.second;
-    }
-    return p.first;
+
+template <typename T>
+void print(Triad<T> t) {
+    std::cout << "[" << t.a << ',' << t.b << ',' << t.c << "]";
 }
 
-template <typename T, typename U>
-Pair(T, U) -> Pair<T, U>;
-
 int main() {
-    std::pair a {2, 2}; //ctad, class template argument deducation
-    std::cout << max(a) << '\n';
+    Triad<int> t1 {1, 2, 3 };
+    print(t1);
+
+    Triad<double> t2 { 1.2, 3.4, 5.6 };
+    print(t2);
+
+    return 0;
 }

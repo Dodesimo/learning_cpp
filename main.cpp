@@ -4,10 +4,9 @@
 
 template <typename T, typename U>
 struct Pair {
-    T first {};
-    U second {};
+    T a {};
+    T b {};
 };
-
 //what is std::pair, a standard way to do typenames.
 template <typename T, typename U>
 constexpr T max(std::pair<T, U> p) {
@@ -17,10 +16,10 @@ constexpr T max(std::pair<T, U> p) {
     return p.first;
 }
 
+template <typename T, typename U>
+Pair(T, U) -> Pair<T, U>;
+
 int main() {
-    Pair<int> p1 {5, 6};
-    std::cout << max<int>(p1) << '\n';
-    Pair<double> p2 {5.2, 6.2};
-    std::cout << max<double>(p2) << '\n';
-    return 0;
+    std::pair a {2, 2}; //ctad, class template argument deducation
+    std::cout << max(a) << '\n';
 }

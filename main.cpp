@@ -1,14 +1,16 @@
 #include <iostream>
 #include <optional>
 #include <string.h>
-template <typename T>
+
+template <typename T, typename U>
 struct Pair {
     T first {};
-    T second {};
+    U second {};
 };
 
-template <typename T>
-constexpr T max(Pair<T> p) {
+//what is std::pair, a standard way to do typenames.
+template <typename T, typename U>
+constexpr T max(std::pair<T, U> p) {
     if (p.first < p.second) {
         return p.second;
     }

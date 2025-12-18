@@ -4,9 +4,7 @@ class Foo {
     int a {};
     int b {};
 public:
-    Foo(int x, int y) {
-        a = x;
-        b = y;
+    Foo(int x, int y) : a {x}, b {y} {
         std::cout << "initialized foo object";
     }
     void print() {

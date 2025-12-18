@@ -1,33 +1,24 @@
 #include <iostream>
 #include <string.h>
 
-class Ball {
-    std::string color;
-    double radius;
+class Foo {
+    int x {};
+    int y {};
 public:
-    Ball (std::string_view c, double r)
-        : color {c}
-        , radius {r}
-        {};
-
-    std::string& getColor() {
-        return color;
+    Foo() {
+        std::cout << "default constructor, takes no parameters";
     }
-
-    double getRadius() {
-        return radius;
+    Foo(int x, int y):
+    x {x},
+    y {x}
+    {
+        std::cout << "initialize with variables";
+    }
+    Foo(int x = 2, int y = 2) {
+        std::cout << "default arguments provided";
     }
 };
 
-void print(Ball& b) {
-    std::cout << "Ball(" << b.getColor() << ", " << b.getRadius() << ")" << "\n";
-}
-
 int main() {
-    Ball blue { "blue", 10.0 };
-    print(blue);
-
-    Ball red { "red", 12.0 };
-    print(red);
     return 0;
 }

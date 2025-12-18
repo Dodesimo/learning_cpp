@@ -14,7 +14,7 @@ struct Date {
 
 
 int main() {
-    Date d {2, 2, 2};
-    d.printDate();
+    const Date d {2, 2, 2};
+    d.printDate(); // this doesn't work beacuse a const object
     return 0;
 }

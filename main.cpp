@@ -1,28 +1,22 @@
 #include <iostream>
-#include <optional>
-#include <string.h>
-class Point3d {
-    int m_x {};
-    int m_y {};
-    int m_z {};
-public:
-    void setValues(int x, int y, int z) {
-        m_x = x;
-        m_y = y;
-        m_z = z;
-    }
 
+class Foo {
+    int a {};
+    int b {};
+public:
+    Foo(int x, int y) {
+        a = x;
+        b = y;
+        std::cout << "initialized foo object";
+    }
     void print() {
-        std::cout << "<" << m_x << "," << m_y << "," << m_z << ">";
+        std::cout << a << " " << b;
     }
 };
 
 int main() {
-    Point3d point;
-    point.setValues(1, 2, 3);
 
-    point.print();
-    std::cout << '\n';
-
+    Foo a = {2, 3};
+    a.print();
     return 0;
 }

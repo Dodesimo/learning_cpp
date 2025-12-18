@@ -2,19 +2,24 @@
 #include <optional>
 #include <string.h>
 
-struct Date {
-    int day {};
-    int month {};
-    int year {};
+class Person {
+    std::string name {};
+public:
+    void knows (const Person& p) {
+        std::cout << name << " knows " << p.name;
+    }
 
-    void printDate() {
-        std::cout << day << ' ' << month << ' ' << year;
+    void setName (std::string_view n) {
+        name = n;
     }
 };
 
 
 int main() {
-    const Date d {2, 2, 2};
-    d.printDate(); // this doesn't work beacuse a const object
+    Person a;
+    Person b;
+    a.setName("Devam");
+    b.setName("Devam2");
+    a.knows(b);
     return 0;
 }

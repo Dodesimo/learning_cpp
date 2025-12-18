@@ -1,25 +1,28 @@
 #include <iostream>
 #include <optional>
 #include <string.h>
-
-class Person {
-    std::string name {};
+class Point3d {
+    int m_x {};
+    int m_y {};
+    int m_z {};
 public:
-    void knows (const Person& p) {
-        std::cout << name << " knows " << p.name;
+    void setValues(int x, int y, int z) {
+        m_x = x;
+        m_y = y;
+        m_z = z;
     }
 
-    void setName (std::string_view n) {
-        name = n;
+    void print() {
+        std::cout << "<" << m_x << "," << m_y << "," << m_z << ">";
     }
 };
 
-
 int main() {
-    Person a;
-    Person b;
-    a.setName("Devam");
-    b.setName("Devam2");
-    a.knows(b);
+    Point3d point;
+    point.setValues(1, 2, 3);
+
+    point.print();
+    std::cout << '\n';
+
     return 0;
 }

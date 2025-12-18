@@ -1,20 +1,33 @@
 #include <iostream>
+#include <string.h>
 
-class Foo {
-    int a {};
-    int b {};
+class Ball {
+    std::string color;
+    double radius;
 public:
-    Foo(int x, int y) : a {x}, b {y} {
-        std::cout << "initialized foo object";
+    Ball (std::string_view c, double r)
+        : color {c}
+        , radius {r}
+        {};
+
+    std::string& getColor() {
+        return color;
     }
-    void print() {
-        std::cout << a << " " << b;
+
+    double getRadius() {
+        return radius;
     }
 };
 
-int main() {
+void print(Ball& b) {
+    std::cout << "Ball(" << b.getColor() << ", " << b.getRadius() << ")" << "\n";
+}
 
-    Foo a = {2, 3};
-    a.print();
+int main() {
+    Ball blue { "blue", 10.0 };
+    print(blue);
+
+    Ball red { "red", 12.0 };
+    print(red);
     return 0;
 }

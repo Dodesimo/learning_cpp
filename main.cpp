@@ -2,24 +2,19 @@
 #include <optional>
 #include <string.h>
 
-template <typename T>
-struct Triad {
-    T a {};
-    T b {};
-    T c {};
+struct Date {
+    int day {};
+    int month {};
+    int year {};
+
+    void printDate() {
+        std::cout << day << ' ' << month << ' ' << year;
+    }
 };
 
-template <typename T>
-void print(Triad<T> t) {
-    std::cout << "[" << t.a << ',' << t.b << ',' << t.c << "]";
-}
 
 int main() {
-    Triad<int> t1 {1, 2, 3 };
-    print(t1);
-
-    Triad<double> t2 { 1.2, 3.4, 5.6 };
-    print(t2);
-
+    Date d {2, 2, 2};
+    d.printDate();
     return 0;
 }

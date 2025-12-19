@@ -14,5 +14,6 @@ void printSingle(const Single& s) {
 }
 
 int main() {
-    printSingle(4);
+    int a {4};
+    printSingle(a);
 }

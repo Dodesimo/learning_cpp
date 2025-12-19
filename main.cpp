@@ -1,20 +1,25 @@
 #include <iostream>
 #include <string.h>
 
-class Foo {
-    int x {};
-    int y {};
+class IntPair {
+    int a {};
+    int b {};
 public:
-    Foo() {
-        std::cout << "Testing";
+    IntPair(int x, int y):
+    a {x},
+    b {y} {
     }
-    Foo(int x_param, int y_param)
-    : x {x_param}
-    , y {y_param} {
-        Foo();
-    }
+
+    int getA() const {return a;}
+    int getB() const {return b;}
 };
 
+void print(IntPair p)
+{
+    std::cout << "(" << p.getA() << ", " << p.getB() << ")\n";
+}
+
+
 int main() {
-    Foo f {}; //constructor chaining
+    print(IntPair{2, 3});
 }

@@ -3,16 +3,18 @@
 class Single {
     int a {};
 public:
-    explicit Single(int x):
+    constexpr Single(int x):
     a {x} {
     }
-    int getA() const{return a;}
+    constexpr int getA() const {return a;}
 };
 
-void printSingle(const Single& s) {
-    std::cout << s.getA();
+constexpr int returnSingle(const Single& s) {
+    return s.getA();
 }
 
 int main() {
-    printSingle(Single {2});
+    constexpr Single s {2};
+    constexpr int a {returnSingle(s)};
+    std::cout << a;
 }

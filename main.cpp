@@ -3,7 +3,7 @@
 class Single {
     int a {};
 public:
-    Single(int x):
+    explicit Single(int x):
     a {x} {
     }
     int getA() const{return a;}
@@ -14,6 +14,5 @@ void printSingle(const Single& s) {
 }
 
 int main() {
-    int a {4};
-    printSingle(a);
+    printSingle(Single {2});
 }

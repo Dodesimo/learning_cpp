@@ -1,29 +1,18 @@
 #include <iostream>
 
-class Fraction {
-    int n {};
-    int d {};
+class Single {
+    int a {};
 public:
-    Fraction(int n_p = 0, int n_d = 1):
-    n {n_p},
-    d {n_d}
-    {
-
+    Single(int x):
+    a {x} {
     }
-    //copy constructor, use the default one.
-    Fraction(const Fraction& fraction) = default;
-
-    int getN() const {return n;}
-    int getD () const {return d;}
-
+    int getA() const{return a;}
 };
 
-void print(const Fraction& f) {
-    std::cout << f.getN() << "/" << f.getD();
+void printSingle(const Single& s) {
+    std::cout << s.getA();
 }
 
 int main() {
-    Fraction f {2, 3};
-    Fraction copy {f};
-    print(f);
+    printSingle(4);
 }

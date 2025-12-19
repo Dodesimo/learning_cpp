@@ -1,20 +1,16 @@
 #include <iostream>
 
-class Single {
+class NumberWrapper {
     int a {};
 public:
-    constexpr Single(int x):
-    a {x} {
-    }
-    constexpr int getA() const {return a;}
+    NumberWrapper(int x = 0):
+    a{x} {}
+    int getA() const {return this->a;}
+    void setA(int x) {a = x;}
 };
 
-constexpr int returnSingle(const Single& s) {
-    return s.getA();
-}
-
 int main() {
-    constexpr Single s {2};
-    constexpr int a {returnSingle(s)};
-    std::cout << a;
+    NumberWrapper nw {3};
+    std::cout << nw.getA();
+    return 0;
 }

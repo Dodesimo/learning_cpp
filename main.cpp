@@ -10,12 +10,8 @@ public:
     {
 
     }
-    //copy constructor
-    Fraction(const Fraction& fraction):
-    n {fraction.n},
-    d {fraction.d}
-    {
-    }
+    //copy constructor, use the default one.
+    Fraction(const Fraction& fraction) = default;
 
     int getN() const {return n;}
     int getD () const {return d;}

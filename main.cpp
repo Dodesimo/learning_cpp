@@ -3,28 +3,29 @@
 class Calculator {
     int acc {};
 public:
-    Calculator& add(int x) {
-        acc += x;
-        return *this; //dereference
-    }
-    Calculator& subtract(int x) {
-        acc -= x;
-        return *this; //dereference
-    }
-    Calculator& multiply(int x) {
-        acc *= x;
-        return *this; //dereference
-    }
-    Calculator& division(int x) {
-        acc /= x;
-        return *this; //dereference
-    }
+    //constructors and functions are declared
+    Calculator();
+    Calculator& add(int x);
+    Calculator& subtract(int x);
     int getValue() const {return acc;}
-
-    void reset() {
-        *this = {};
-    }
+    void reset() {*this = {};}
 };
+
+//definition of constructor
+Calculator::Calculator(){}
+
+//definition
+Calculator& Calculator::add(int x)
+{
+    acc += x;
+    return *this;
+}
+
+Calculator& Calculator::subtract(int x)
+{
+    acc -= x;
+    return *this;
+}
 
 int main() {
     Calculator c {};

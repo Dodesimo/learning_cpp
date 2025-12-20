@@ -10,11 +10,11 @@ public:
     y {b}
     {}
 
-    bool equality(const Pair<T>& p);
+    bool equality(const Pair& p);
 };
 
 template <typename T>
-bool Pair<T>::equality (const Pair<T>&p) {
+bool Pair<T>::equality (const Pair&p) { //injected name doesn't work for the function name (needs to be whole thing)
     return x == p.x && y == p.y;
 }
 

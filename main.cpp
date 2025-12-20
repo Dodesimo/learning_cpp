@@ -1,16 +1,29 @@
 #include <iostream>
 
-class NumberWrapper {
-    int a {};
+class Calculator {
+    int acc {};
 public:
-    NumberWrapper(int x = 0):
-    a{x} {}
-    int getA() const {return this->a;}
-    void setA(int x) {a = x;}
+    Calculator* add(int x) {
+        acc += x;
+        return this;
+    }
+    Calculator* subtract(int x) {
+        acc -= x;
+        return this;
+    }
+    Calculator* multiply(int x) {
+        acc *= x;
+        return this;
+    }
+    Calculator* division(int x) {
+        acc /= x;
+        return this;
+    }
+    int getValue() const {return acc;}
 };
 
 int main() {
-    NumberWrapper nw {3};
-    std::cout << nw.getA();
-    return 0;
+    Calculator c {};
+    c.add(2)->multiply(3)->add(5)->multiply(2);
+    std::cout << c.getValue();
 }

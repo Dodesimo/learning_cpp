@@ -5,10 +5,12 @@ class Accumulator {
 public:
     Accumulator(){}
     void add(int x){acc += x;}
-    friend void display(const Accumulator& a) {
-        std::cout << "Value of A:" << a.acc;
-    }
+    friend void display(const Accumulator& a);
 };
+
+void display(const Accumulator &a) {
+    std::cout << "external function value of a is " << a.acc;
+}
 
 int main() {
     Accumulator a {};

@@ -1,25 +1,37 @@
 #include <iostream>
 
-template <typename T>
-class Pair {
-    T x {};
-    T y {};
+template <typename U, typename V, typename Z>
+class Triad {
+    U a {};
+    V b {};
+    Z c {};
 public:
-    Pair(const T& a, const T& b):
-    x {a},
-    y {b}
-    {}
-
-    bool equality(const Pair& p);
+    Triad(const U& aP, const V& bP, const Z& cP):
+    a {aP},
+    b {bP},
+    c {cP}
+    {
+    }
+    void print() const {
+        std::cout << "[" << a << "," << b << "," << c << "]";
+    }
+    const U& first() const {
+        return a;
+    }
 };
 
-template <typename T>
-bool Pair<T>::equality (const Pair&p) { //injected name doesn't work for the function name (needs to be whole thing)
-    return x == p.x && y == p.y;
-}
 
-int main() {
-    Pair p {3, 4};
-    std::cout << std::boolalpha << p.equality({3, 4}) << '\n';
-    std::cout << std::boolalpha << p.equality({65, 4});
+int main()
+{
+    Triad<int, int, int> t1{ 1, 2, 3 };
+    t1.print();
+    std::cout << '\n';
+    std::cout << t1.first() << '\n';
+
+    using namespace std::literals::string_literals;
+    const Triad t2{ 1, 2.3, "Hello"s };
+    t2.print();
+    std::cout << '\n';
+
+    return 0;
 }

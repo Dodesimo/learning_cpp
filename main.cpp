@@ -20,6 +20,10 @@ public:
         return *this; //dereference
     }
     int getValue() const {return acc;}
+
+    void reset() {
+        *this = {};
+    }
 };
 
 int main() {

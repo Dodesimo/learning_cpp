@@ -1,19 +1,31 @@
 #include <iostream>
 
-class Accumulator {
-    int acc {};
+//forward declare this.
+class Humidity;
+
+class Temperature {
+    int t {};
 public:
-    Accumulator(){}
-    void add(int x){acc += x;}
-    friend void display(const Accumulator& a);
+    Temperature(int x):
+    t {x}{}
+    friend void printTempHumid(const Temperature& t, const Humidity& h);
 };
 
-void display(const Accumulator &a) {
-    std::cout << "external function value of a is " << a.acc;
+class Humidity {
+    int h {};
+public:
+    Humidity (int x): h {x} {}
+    friend void printTempHumid(const Temperature& t, const Humidity& h);
+};
+
+void printTempHumid(const Temperature &t, const Humidity &h) {
+    std::cout << "Temperature: " << t.t << '\n';
+    std::cout << "Humidity: " << h.h << '\n';
 }
 
 int main() {
-    Accumulator a {};
-    display(a);
+    Temperature t {2};
+    Humidity h {5};
+    printTempHumid(t, h);
     return 0;
 }

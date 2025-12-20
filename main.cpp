@@ -1,21 +1,17 @@
 #include <iostream>
 
-class IdGenerator {
-    static inline int id {0};
+class Accumulator {
+    int acc {};
 public:
-    static void incrementId();
-    static int getId(){return id;}
+    Accumulator(){}
+    void add(int x){acc += x;}
+    friend void display(const Accumulator& a) {
+        std::cout << "Value of A:" << a.acc;
+    }
 };
 
-void IdGenerator::incrementId() {
-    ++id;
-}
-
 int main() {
-    IdGenerator::incrementId();
-    std::cout << IdGenerator::getId() << '\n';
-    IdGenerator::incrementId();
-    IdGenerator::incrementId();
-    std::cout << IdGenerator::getId();
+    Accumulator a {};
+    display(a);
     return 0;
 }

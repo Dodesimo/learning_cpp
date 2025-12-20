@@ -1,21 +1,17 @@
 #include <iostream>
 
-class Fruit {
+class Foo {
+    int a {};
 public:
-    enum Type {
-        apple,
-        banana,
-        orange
-    };
-    Fruit(Type t){this->t = t;}
-    Type& getType(){return t;}
-    void setType(const Type& t){this->t = t;}
-private:
-    Type t {};
+    Foo(int x):
+    a {x}
+    {};
+    ~Foo() {
+        std::cout << "Constructor destroyed";
+    }
 };
 
 int main() {
-    Fruit f {Fruit::apple};
-    std::cout << f.getType();
+    Foo b {0};
     return 0;
 }

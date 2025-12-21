@@ -2,9 +2,15 @@
 #include <vector>
 //friending member functions
 
+template <typename T>
+void passByReference(std::vector<T>& vect) {
+    std::cout << vect[0];
+}
+
 int main() {
-    std::vector vec {1, 2, 3, 5, 3}; //ctad
-    std::cout << vec.at(0); //this will work
-    std::cout << vec.at(15141); //this won't work because we will get a bounds check
+    std::vector a {1, 2, 3}; //ctad infers this is a vector with template argument of int
+    std::vector b {1.1, 2.2, 3.3}; //ctad infers this is a vector wtih template argument of double
+    passByReference(a);
+    passByReference(b);
     return 0;
 }

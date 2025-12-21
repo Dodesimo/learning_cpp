@@ -7,11 +7,12 @@ namespace Students {
         a,
         b,
         c,
+        max_students, //count enumerator
     };
 }
 
 int main() {
-    std::vector vec {2, 4, 5};
-    std::cout << vec[Students::Names::a];
+    std::vector<int> names (Students::Names::max_students);
+    names[Students::Names::b] = 2; //get the index/value associated with Students::Names::b
     return 0;
 }

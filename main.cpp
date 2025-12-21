@@ -2,15 +2,13 @@
 #include <vector>
 //friending member functions
 
-template <typename T>
-void passByReference(std::vector<T>& vect) {
-    std::cout << vect[0];
-}
-
 int main() {
-    std::vector a {1, 2, 3}; //ctad infers this is a vector with template argument of int
-    std::vector b {1.1, 2.2, 3.3}; //ctad infers this is a vector wtih template argument of double
-    passByReference(a);
-    passByReference(b);
+    std::vector scores {1, 2, 5, 10, 23, 2};
+    int total {};
+    for (auto i {0}; i < scores.size(); ++i) {
+        total += scores[i];
+    }
+    double avg {static_cast<double>(total) / static_cast<int>(scores.size())};
+    std::cout << avg;
     return 0;
 }

@@ -2,17 +2,11 @@
 #include <vector>
 #include <ranges>
 
-namespace Students {
-    enum Names {
-        a,
-        b,
-        c,
-        max_students, //count enumerator
-    };
-}
-
 int main() {
-    std::vector<int> names (Students::Names::max_students);
-    names[Students::Names::b] = 2; //get the index/value associated with Students::Names::b
+    std::vector v {0, 1, 2, 3};
+    for (const int& i: v){std::cout << i;}
+    v.resize(5);
+    std::cout << '\n';
+    for (const int& i :v){std::cout << i;}
     return 0;
 }

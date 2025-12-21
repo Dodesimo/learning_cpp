@@ -1,31 +1,25 @@
 #include <iostream>
-
-//forward declare this.
-class Humidity;
-
-class Temperature {
-    int t {};
+//friending member functions
+class A;
+class B {
+    int value {};
 public:
-    Temperature(int x):
-    t {x}{}
-    friend void printTempHumid(const Temperature& t, const Humidity& h);
+    B (int x):
+    value {x} {}
+    int getAValue(const A& a); //forward declaration of A-related method, works because the parameter is forward declared
 };
 
-class Humidity {
-    int h {};
+class A {
+    int value {};
 public:
-    Humidity (int x): h {x} {}
-    friend void printTempHumid(const Temperature& t, const Humidity& h);
+    A (int x): value {x} {}
+    friend int B::getAValue(const A& a); //use scope resolution for correct friend method, meaning something else can call it with full access to a internals
 };
 
-void printTempHumid(const Temperature &t, const Humidity &h) {
-    std::cout << "Temperature: " << t.t << '\n';
-    std::cout << "Humidity: " << h.h << '\n';
+int B::getAValue(const A& a) {
+    return a.value;
 }
 
 int main() {
-    Temperature t {2};
-    Humidity h {5};
-    printTempHumid(t, h);
     return 0;
 }

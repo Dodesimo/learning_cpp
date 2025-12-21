@@ -3,10 +3,14 @@
 #include <ranges>
 
 int main() {
-    std::vector v {0, 1, 2, 3};
-    for (const int& i: v){std::cout << i;}
-    v.resize(5);
-    std::cout << '\n';
-    for (const int& i :v){std::cout << i;}
-    return 0;
+    std::vector<int> stack {}; //can't use ctad because we don't want to initialize this yet
+    stack.reserve(4);
+    std::cout << "capacity: " << stack.capacity() << " ";
+    std::cout << "length: " << stack.size();
+    std::cout << "\n";
+    stack.push_back(5);
+    std::cout << "capacity: " << stack.capacity() << " ";
+    std::cout << "length: " << stack.size();
+    std::cout << "\n";
+
 }

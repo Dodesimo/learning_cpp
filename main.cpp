@@ -1,25 +1,17 @@
 #include <iostream>
 //friending member functions
-class A;
-class B {
-    int value {};
+class Employee {
+    std::string name {};
 public:
-    B (int x):
-    value {x} {}
-    int getAValue(const A& a); //forward declaration of A-related method, works because the parameter is forward declared
+    Employee(std::string_view name):
+    name {name}{}
+    const std::string& getName() const & { //this tells us to call this version of function when called on an l value (makes sense, we want to return by reference and prevent a dangling reference)
+        return name;
+    }
+    const std::string getName() const && { //this tells us to call this version of the function when called on an r value (makes sense, we don't want to return a reference bcause it could dangle)
+        return name;
+    }
 };
-
-class A {
-    int value {};
-public:
-    A (int x): value {x} {}
-    friend int B::getAValue(const A& a); //use scope resolution for correct friend method, meaning something else can call it with full access to a internals
-};
-
-int B::getAValue(const A& a) {
-    return a.value;
-}
-
 int main() {
     return 0;
 }

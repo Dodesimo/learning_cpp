@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-//friending member functions
+#include <ranges>
 
 int main() {
     std::vector col {"data", "test", "oof"}; //ctad string
-    for (const std::string& s: col) {
+    for (const std::string& s: std::views::reverse(col)) {
         std::cout << s << "\n";
     }
     return 0;

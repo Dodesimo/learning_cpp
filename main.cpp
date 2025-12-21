@@ -4,6 +4,6 @@
 
 int main() {
     std::vector vec {1, 2, 3, 5, 3}; //ctad
-    std::cout << typeid(std::size(vec)).name();
+    std::cout << vec.size();
     return 0;
 }

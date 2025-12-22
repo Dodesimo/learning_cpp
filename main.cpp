@@ -4,6 +4,10 @@
 
 template <typename U, std::size_t N> //U is a type parameter, N is a non-type parameter
 void passByReference(const std::array<U, N>& a) {
+
+    //check whether the size of the array is not 0.
+    static_assert(a != 0);
+
     for (auto i{0}; i < N; ++i) {
         std::cout << a[i];
     }

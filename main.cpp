@@ -2,9 +2,13 @@
 #include <vector>
 #include <ranges>
 
-int main() {
-    constexpr std::array arr {1, 2, 3, 5}; //ctad
-    for (std::size_t i {}; i < arr.size(); ++i) {
-        std::cout << arr[i];
+void passByReference(const std::array<int, 5>& a) {
+    for (auto i{0}; i < a.size(); ++i) {
+        std::cout << a[i];
     }
+}
+
+int main() {
+    constexpr std::array arr {1, 2, 3, 5, 7}; //ctad
+    passByReference(arr);
 }

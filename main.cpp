@@ -3,8 +3,7 @@
 #include <ranges>
 
 int main() {
-    std::array<int, 5> a {}; //array declaration
-    std::cout << a[0] << '\n';
-    std::array<int, 5> b; //elements are not defaulted out
-    std::cout << b[0];
+    constexpr std::array arr {1, 2, 3, 5}; //ctad
+    std::cout << arr.size() << '\n';
+    int size {arr.size()};
 }

@@ -1,21 +1,22 @@
+#include <array>
 #include <iostream>
-#include <vector>
-#include <ranges>
 
-template <typename U, std::size_t N> //U is a type parameter, N is a non-type parameter
-void passByReference(const std::array<U, N>& a) {
-
-    //check whether the size of the array is not 0.
-    static_assert(a != 0);
-
-    for (auto i{0}; i < N; ++i) {
-        std::cout << a[i];
+template <typename U, std::size_t N>
+void printArray(const std::array<U, N> a) {
+    std::cout << "The array (";
+    for (auto i {0}; i < a.size() - 1; ++i) {
+        std::cout << a[i] << " ";
     }
+    std::cout << a[a.size() - 1] << ")" << " has length " << a.size() << "\n";
 }
 
-int main() {
-    constexpr std::array arr {1, 2, 3, 5, 7}; //ctad
-    constexpr std::array arr2 {"testing", "testing", "testing"}; //ctad will deduce this of type <const char*, 3>?
-    passByReference(arr);
-    passByReference(arr2);
+int main()
+{
+    constexpr std::array arr1 { 1, 4, 9, 16 };
+    printArray(arr1);
+
+    constexpr std::array arr2 { 'h', 'e', 'l', 'l', 'o' };
+    printArray(arr2);
+
+    return 0;
 }

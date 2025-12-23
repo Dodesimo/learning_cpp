@@ -8,11 +8,12 @@ struct House {
 };
 
 int main() {
-    constexpr std::array h {
 
-        House {2, 5, 4},
-        House {4, 2, 1},
-        House {58, 2, 1}
-
-    };
+    constexpr std::array<House, 3> h {
+                {
+                    {2, 5, 3},
+                    {4, 6, 1},
+                    {122, 1, 2}
+                }
+    }; //here we provide template arguments, but each of the inner items don't have arguments
 }

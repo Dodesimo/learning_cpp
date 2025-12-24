@@ -3,7 +3,10 @@
 #include <cstring>
 
 template <typename U, std::size_t ROW, std::size_t COL>
-void printArray(const std::array<std::array<U, COL>, ROW>& matrix) {
+using array = std::array<std::array<U, COL>, ROW>;
+
+template <typename U, std::size_t ROW, std::size_t COL>
+void printArray(const array<U, ROW, COL>& matrix) {
     for (auto i {0}; i < ROW; ++i) {
         for (auto j {0}; j < COL; ++j) {
             std::cout << matrix[i][j] << ' ';

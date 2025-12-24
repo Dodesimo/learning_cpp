@@ -1,12 +1,15 @@
 #include <iostream>
 
+void printArray(const int* arrayPointer) {
+    for (auto i {0}; i < 4; ++i) {
+        std::cout << arrayPointer[i];
+    }
+}
+
 int main() {
-    int arr[15]; // we have an array of 15 elements of int that are fill with garbage
-    std::cout << arr[0];
-
-    int second_arr[15]{}; //array of 15 elements that are value initialized with 0
-    std::cout << second_arr[0];
-
-    int third_arr[] {1, 2, 3}; //aggregate initialization via an initializer list, can ommit lenght
+    const int arr[] {2, 4, 1, 2};
+    const int arr_two[] {23, 34, 3423, 32423, 1212, 232};
+    printArray(arr);
+    printArray(arr_two);
     return 0;
 }

@@ -3,12 +3,10 @@
 #include <cstring>
 
 int main() {
-    std::cout << "length of array";
-    std::size_t length {};
-    std::cin >> length;
-    int* array { new int[length]{} }; //iniitalize an array of length length, value init every element.
-    array[3] = 2;
-    std::cout << array[3];
-    delete[] array;
+    int* arr {new int[5]{2, 3, 5, 3}}; //do direct initialization of a dynamic allocated array
+    for (auto i {0}; i < 5; ++i) {
+        std::cout << *(arr + i);
+    }
+    delete[] arr;
     return 0;
 }

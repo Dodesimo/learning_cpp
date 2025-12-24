@@ -2,12 +2,14 @@
 #include <iostream>
 #include <cstring>
 
+bool greater(int a, int b) {
+    return a > b;
+}
+
 int main() {
     std::array arr {2, 1, 17, 45, 8, 30};
-    auto target {std::find(std::begin(arr), std::end(arr), 8)};
-    if (target == arr.end()) {
-        std::cout << "not found";
-    } else {
-        std::cout << *target; //dereference
+    std::sort(std::begin(arr), std::end(arr), greater); //greater is a function pointer for a comparator;
+    for (const auto& a : arr) {
+        std::cout << a << '\n';
     }
 }

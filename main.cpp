@@ -3,8 +3,11 @@
 #include <cstring>
 
 int main() {
-    int* ptr {new int {5}}; // dynamic memory request;
-    std::cout << *ptr;
-    delete ptr; //return memory back to the system
-    ptr = nullptr; //set the ptr to a default value
+    std::cout << "length of array";
+    std::size_t length {};
+    std::cin >> length;
+    int* array { new int[length]{} }; //iniitalize an array of length length, value init every element.
+    array[3] = 2;
+    std::cout << array[3];
+    return 0;
 }

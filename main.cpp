@@ -9,6 +9,11 @@ int main() {
     }
     array[2][1] = 4;
     std::cout << array[2][1];
+
+    for (auto i {0}; i < 10; ++i) {
+        delete[] array[i];
+    }
+
     delete[] array;
     return 0;
 }

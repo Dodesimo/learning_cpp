@@ -1,13 +1,12 @@
 #include <iostream>
 
 int main() {
-    int a {2};
-    int* a_pointer {&a};
-    std::cout << a_pointer << '\n';
-    std::cout << a_pointer + 1 << '\n';
-    std::cout << a_pointer + 2 << '\n';
-    std::cout << a_pointer + 3 << '\n';
-    return 0;
-
-    //subscript notation: *((ptr) + n) = ptr[n]
+    //iterating a C-style array through pointer arithmetic.
+    const int array[] {2, 3, 4, 5, 6};
+    const int* start = &array[0];
+    const int* end = start + std::size(array);
+    while (start < end) {
+        std::cout << *start <<'\n';
+        ++start;
+    }
 }

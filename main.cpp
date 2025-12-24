@@ -8,4 +8,6 @@ int main() {
     std::cout << a_pointer + 2 << '\n';
     std::cout << a_pointer + 3 << '\n';
     return 0;
+
+    //subscript notation: *((ptr) + n) = ptr[n]
 }

@@ -1,10 +1,26 @@
+#include <array>
 #include <iostream>
 #include <cstring>
 
+template <typename U, std::size_t ROW, std::size_t COL>
+void printArray(const std::array<std::array<U, COL>, ROW>& matrix) {
+    for (auto i {0}; i < ROW; ++i) {
+        for (auto j {0}; j < COL; ++j) {
+            std::cout << matrix[i][j] << ' ';
+        }
+        std::cout << '\n';
+    }
+}
+
 int main() {
-    //iterating a C-style array through pointer arithmetic.
-    char str[] {"string"};
-    str[0] = 'a';
-    std::cout << std::strlen(str);
+    std::array<std::array<int, 5>, 3> t {
+        {
+            {1, 2, 3},{2, 4, 5}, {4, 2, 12}
+        }};
+
+    std::array<std::array<std::string, 4>, 6> s {};
+    printArray(t);
+    printArray(s);
+
     return 0;
 }

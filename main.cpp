@@ -1,15 +1,11 @@
 #include <iostream>
 
-void printArray(const int* arrayPointer) {
-    for (auto i {0}; i < 4; ++i) {
-        std::cout << arrayPointer[i];
-    }
-}
-
 int main() {
-    const int arr[] {2, 4, 1, 2};
-    const int arr_two[] {23, 34, 3423, 32423, 1212, 232};
-    printArray(arr);
-    printArray(arr_two);
+    int a {2};
+    int* a_pointer {&a};
+    std::cout << a_pointer << '\n';
+    std::cout << a_pointer + 1 << '\n';
+    std::cout << a_pointer + 2 << '\n';
+    std::cout << a_pointer + 3 << '\n';
     return 0;
 }

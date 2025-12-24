@@ -2,11 +2,24 @@
 #include <iostream>
 #include <cstring>
 
-int main() {
-    int* arr {new int[5]{2, 3, 5, 3}}; //do direct initialization of a dynamic allocated array
-    for (auto i {0}; i < 5; ++i) {
-        std::cout << *(arr + i);
+class IntArrayWrapper {
+    int* arrayPointer{};
+    int arrayLength{};
+public:
+     IntArrayWrapper(int size) {
+         arrayLength = size;
+         arrayPointer = new int[static_cast<std::size_t>(arrayLength)]{};
     }
-    delete[] arr;
-    return 0;
+    ~IntArrayWrapper() {
+         delete[] arrayPointer;
+     }
+    int getValue(int index){return *(arrayPointer + index);}
+    void setValue(int index, int value){*(arrayPointer + index) = value;}
+};
+
+int main() {
+    IntArrayWrapper i {10};
+    std::cout << i.getValue(0) << '\n';
+    i.setValue(0, 232);
+    std::cout << i.getValue(0);
 }

@@ -3,12 +3,11 @@
 #include <cstring>
 #include <functional>
 
-int sumTo(int n) {
-    if (n == 0){return 0;}
-    return n + sumTo(n - 1);
+int sumDigits(int x) {
+    if (x == 0){return 0;}
+    return sumDigits(x / 10) + (x % 10);
 }
-
 int main() {
-    std::cout << sumTo(100);
+    std::cout << sumDigits(101);
     return 0;
 }

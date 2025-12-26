@@ -12,6 +12,6 @@ int goo () {
 
 int main() {
     int (*f)() {&func};
-    std::cout << (*f)();
+    f();
     return 0;
 }

@@ -12,8 +12,6 @@ int goo () {
 
 int main() {
     int (*f)() {&func};
-    std::cout << reinterpret_cast<void*>(f) << '\n';
-    f = &goo;
-    std::cout << reinterpret_cast<void*>(f) << '\n';
+    std::cout << (*f)();
     return 0;
 }

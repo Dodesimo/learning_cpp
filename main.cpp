@@ -1,17 +1,27 @@
 #include <array>
 #include <iostream>
 #include <cstring>
+#include <functional>
 
-void print(int x) {
-    std::cout << x;
+bool validate(int x, int y, std::function<bool(int, int)> fcn) {
+    if (fcn(x, y)) {
+        return true;
+    }
+    return false;
 }
 
-void print(int x, int y = 10) {
-    std::cout << x << '\n' << y;
+bool greater(int x, int y) {
+    return x > y;
+}
+
+bool smaller (int x, int y) {
+    return x < y;
 }
 
 int main() {
-    void (*fn)(int) {print}; //we make it less ambiguious what we want to call
-    fn(10);
+    int a {10};
+    int b {15};
+    std::cout << std::boolalpha << validate(a, b, greater) << '\n';
+    std::cout << std::boolalpha << validate(a, b, smaller);
     return 0;
 }

@@ -3,25 +3,19 @@
 #include <cstring>
 #include <functional>
 
-bool validate(int x, int y, std::function<bool(int, int)> fcn) {
-    if (fcn(x, y)) {
-        return true;
+int fibo(int n) {
+    if (n == 0) {
+        return 0;
     }
-    return false;
-}
+    if (n == 1) {
+        return 1;
+    }
 
-bool greater(int x, int y) {
-    return x > y;
-}
+    return fibo(n - 1)  + fibo(n - 2);
 
-bool smaller (int x, int y) {
-    return x < y;
 }
 
 int main() {
-    int a {10};
-    int b {15};
-    std::cout << std::boolalpha << validate(a, b, greater) << '\n';
-    std::cout << std::boolalpha << validate(a, b, smaller);
+    std::cout << fibo(5);
     return 0;
 }

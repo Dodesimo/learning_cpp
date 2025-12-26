@@ -3,19 +3,12 @@
 #include <cstring>
 #include <functional>
 
-int fibo(int n) {
-    if (n == 0) {
-        return 0;
-    }
-    if (n == 1) {
-        return 1;
-    }
-
-    return fibo(n - 1)  + fibo(n - 2);
-
+int sumTo(int n) {
+    if (n == 0){return 0;}
+    return n + sumTo(n - 1);
 }
 
 int main() {
-    std::cout << fibo(5);
+    std::cout << sumTo(100);
     return 0;
 }

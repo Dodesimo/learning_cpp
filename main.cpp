@@ -7,7 +7,7 @@ int main(int argc, char* argv []) {
 
     int var {1};
     auto lambda {
-        [var]() mutable {
+        [&var]() mutable {
             ++var;
             std::cout << "var is now: " << var << '\n';
         }

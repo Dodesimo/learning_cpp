@@ -1,21 +1,22 @@
 #include <array>
 #include <iostream>
-#include <cstdarg>
-#include <functional>
+
+class Cents {
+    int mCents {};
+public:
+    Cents(int cents): mCents {cents}{}
+//use a friend function to give access to internal of cents and overload the + operator
+friend int operator+ (const Cents& c1, const Cents& c2);
+int getCents() const {return mCents;}
+};
+
+//bceause this is a friend, don't need to do scope reoslution
+int operator+(const Cents& c1, const Cents& c2){
+    return c1.mCents + c2.mCents;
+}
 
 int main(int argc, char* argv []) {
-
-    int var {1};
-    auto lambda {
-        [&var]() mutable {
-            ++var;
-            std::cout << "var is now: " << var << '\n';
-        }
-    };
-
-    lambda();
-    lambda();
-    std::cout << var;
-    return 0;
-
+    Cents c1 {2};
+    Cents c2 {4};
+    std::cout << c1 + c2;
 }

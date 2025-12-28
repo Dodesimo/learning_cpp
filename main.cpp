@@ -1,17 +1,21 @@
 #include <array>
 #include <iostream>
 
-class Cents {
-    int cents {};
+class Point {
+    int x {};
+    int y {};
+    int z {};
 public:
-    Cents(int x): cents {x} {}
-    Cents operator+ (const Cents& other);
+    Point (int x, int y, int z): x {x}, y {y}, z {z} {}
+    //overload ! operator
+    bool operator! ();
 };
 
-Cents Cents::operator+ (const Cents& other){
-    return Cents {cents + other.cents};
+bool Point::operator!() {
+    return (x != 0 && y != 0 && z != 0);
 }
 
-int main(int argc, char* argv []) {
-   return 0;
+int main(){
+    Point p {1, 2, 3};
+    std::cout << std::boolalpha << !p;
 }

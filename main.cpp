@@ -1,33 +1,22 @@
 #include <array>
 #include <iostream>
 
-class Digit {
-    int digit {};
+class Matrix {
+    double data[4][4] {}; //four by four matrix value initialized
 public:
-    Digit (int x): digit {x} {}
-    //overload ++ and -- and then return reference to existing obejct because they modified in place
-    Digit& operator++ ();
-    Digit& operator-- ();
-    int getDigit() const {return digit;}
+    double operator()(int row, int column) const; //this is a const overload of () that allows for indexing on const matrices
+    double& operator()(int row, int column); //overload that works for value changing
 };
 
-Digit& Digit::operator++ (){
-    if (digit == 9) {digit = 0;} else {
-    ++digit;
-    }
-    return *this;
+double& Matrix::operator()(int row, int column){
+    return data[row][column]; //do some bounds checking
 }
 
-Digit& Digit::operator-- (){
-    if (digit == 0) {digit = 9;} else {
-    --digit;
-    }
-    return *this; //dereference implicit this pointer, and then return a reference to this.
+double Matrix::operator()(int row, int column){
+    return data[row][column]; //do some bounds checking
 }
+
 
 int main() {
-    Digit d {9};
-    ++d;
-    --d;
-    std::cout << d.getDigit();
+    return 0;
 }

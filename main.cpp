@@ -8,9 +8,9 @@ class Data {
 public:
     Data (int x, int y, int z): a {x}, b {y}, c {z} {};
     friend std::istream& operator>> (const std::istream& in, Data& d);
-}
+};
 
-std::istream& operator>> (std::istream& in, data &d) {
+std::istream& operator>> (std::istream& in, Data &d) {
     int a {};
     int b {};
     int c {};
@@ -22,7 +22,7 @@ std::istream& operator>> (std::istream& in, data &d) {
         d  = Data{a, b, c};
         return in;
     }
-}
+};
 
 int main(int argc, char* argv []) {
    return 0;

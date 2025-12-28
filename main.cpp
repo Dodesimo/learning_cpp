@@ -18,6 +18,8 @@ std::istream& operator>> (std::istream& in, Data &d) {
     
     if (in.fail()) {
         return in;
+    } else if (b < 0) {
+        std::cin.setstate(std::ios_base::failbit);
     } else {
         d  = Data{a, b, c};
         return in;

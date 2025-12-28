@@ -1,21 +1,33 @@
 #include <array>
 #include <iostream>
 
-class Point {
-    int x {};
-    int y {};
-    int z {};
+class Digit {
+    int digit {};
 public:
-    Point (int x, int y, int z): x {x}, y {y}, z {z} {}
-    //overload ! operator
-    bool operator! ();
+    Digit (int x): digit {x} {}
+    //overload ++ and -- and then return reference to existing obejct because they modified in place
+    Digit& operator++ ();
+    Digit& operator-- ();
+    int getDigit() const {return digit;}
 };
 
-bool Point::operator!() {
-    return (x != 0 && y != 0 && z != 0);
+Digit& Digit::operator++ (){
+    if (digit == 9) {digit = 0;} else {
+    ++digit;
+    }
+    return *this;
 }
 
-int main(){
-    Point p {1, 2, 3};
-    std::cout << std::boolalpha << !p;
+Digit& Digit::operator-- (){
+    if (digit == 0) {digit = 9;} else {
+    --digit;
+    }
+    return *this; //dereference implicit this pointer, and then return a reference to this.
+}
+
+int main() {
+    Digit d {9};
+    ++d;
+    --d;
+    std::cout << d.getDigit();
 }

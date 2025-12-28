@@ -1,27 +1,29 @@
 #include <array>
 #include <iostream>
 
-class Cents {
-    int mCents {};
+class Data {
+    int a {};
+    int b {};
+    int c {};
 public:
-    Cents(int cents): mCents {cents}{}
-    int getCents() const {return mCents;}
-};
-
-//bceause this is a friend, don't need to do scope reoslution
-int operator+(const Cents& c1, const Cents& c2){
-    return c1.getCents() + c2.getCents();
+    Data (int x, int y, int z): a {x}, b {y}, c {z} {};
+    friend std::istream& operator>> (const std::istream& in, Data& d);
 }
 
-std::ostream& operator<< (std::ostream& out, const Cents& c){
-    std::cout << "The cents is: " << c.getCents();
-    return out;
+std::istream& operator>> (std::istream& in, data &d) {
+    int a {};
+    int b {};
+    int c {};
+    in >> a >> b >> c;
+    
+    if (in.fail()) {
+        return in;
+    } else {
+        d  = Data{a, b, c};
+        return in;
+    }
 }
-
 
 int main(int argc, char* argv []) {
-    Cents c1 {2};
-    Cents c2 {4};
-    Cents c3 {c1 + c2};
-    std::cout << c3;
+   return 0;
 }

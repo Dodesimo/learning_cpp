@@ -6,7 +6,7 @@ class Fraction {
     int d {};
 public:
     Fraction(int x, int y): n {x}, d {y} {}
-    Fraction (const Fraction& f) {n = f.n; d = f.d;} //this is a copy constructor, if we do = default will by default do a value initalization
+    Fraction (const Fraction& f) = default; //this is a copy constructor, if we do = default will by default do a value initalization
     //overload the copy assignment
     Fraction& operator= (const Fraction& f) {
        n = f.n;

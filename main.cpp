@@ -5,8 +5,11 @@ class Cents {
     int mCents {};
 public:
     Cents(int cents): mCents {cents}{}
-//use a friend function to give access to internal of cents and overload the + operator
-int getCents() const {return mCents;}
+    int getCents() const {return mCents;}
+    friend std::ostream& operator<< (std::ostream& out, const Cents& c){
+        std::cout << "The cents is: " << c.getCents();
+        return out;
+    }
 };
 
 //bceause this is a friend, don't need to do scope reoslution
@@ -18,5 +21,5 @@ int main(int argc, char* argv []) {
     Cents c1 {2};
     Cents c2 {4};
     Cents c3 {c1 + c2};
-    std::cout << c3.getCents();
+    std::cout << c3;
 }

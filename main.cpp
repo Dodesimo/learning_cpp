@@ -13,11 +13,13 @@ public:
     }
 };
 
+template <typename T>
+void fetchResource(const std::unique_ptr<T> p){
+    std::cout << "resource: " << *p << '\n';
+}
+
 int main() {
     auto resourcePointer {std::make_unique<Resource>()}; //pass in class name as a template argument.
-    if (resourcePointer){
-        std::cout << *resourcePointer << '\n';
-    }
-    
+    fetchResource (std::move(resourcePointer));
     return 0;
 }

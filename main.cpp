@@ -4,7 +4,7 @@
 
 class Person {
     std::string name;
-    std::weak_ptr<Person> partner; //prevent a cyclic dependency by creating 
+    std::shared_ptr<Person> partner; //prevent a cyclic dependency by creating 
     public:
         Person(const std::string& n): name {n} {std::cout << "Created " << n << '\n';}
         ~Person(){std::cout << "Destroyed " << name << '\n';} 
@@ -18,8 +18,8 @@ class Person {
 };
 
 int main() {
-    auto a {std::make_shared<Person>()};
-    auto b {std::make_shared<Person>()};
+    auto a {std::make_shared<Person>("a")};
+    auto b {std::make_shared<Person>("b")};
     partnerUp(a, b);
     return 0;
 }

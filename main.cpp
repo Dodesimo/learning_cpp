@@ -2,22 +2,24 @@
 #include <iostream>
 #include <algorithm>
 
-class Resource {
-    int a {2};
-public:
-    Resource() {std::cout << "Allocated resource" << '\n';}
-    ~Resource() {std::cout << "deleted resource" << '\n';}
-    friend std::ostream& operator<< (std::ostream& s, const Resource& r){
-        std::cout << r.a;
-        return s;
-    }
+class Person {
+    std::string name;
+    std::weak_ptr<Person> partner; //prevent a cyclic dependency by creating 
+    public:
+        Person(const std::string& n): name {n} {std::cout << "Created " << n << '\n';}
+        ~Person(){std::cout << "Destroyed " << name << '\n';} 
+        friend bool partnerUp(const std::shared_ptr<Person>& personOne, const std::shared_ptr<Person>& personTwo){
+            if (!personOne || !personTwo){return false;} //this means that one of them points to junk.
+            personOne->partner = personTwo;
+            personTwo->partner = personOne;
+            std::cout << personOne->name << " is now partnered with " << personTwo->name << '\n';
+		    return true;
+        }
 };
 
 int main() {
-    Resource* rPointer {new Resource()}; //put on the heap
-    std::shared_ptr<Resource> sp {rPointer};
-    {
-        std::cout << "nested made" << '\n'
-        std::shared_ptr<Resource> nested {sp};
-    }
+    auto a {std::make_shared<Person>()};
+    auto b {std::make_shared<Person>()};
+    partnerUp(a, b);
+    return 0;
 }

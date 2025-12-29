@@ -14,12 +14,10 @@ public:
 };
 
 int main() {
-    std::unique_ptr<Resource> up {new Resource{}}; //takes a template name
-    std::unique_ptr<Resource> newUp {};
-
-    newUp = std::move(up); 
-    if (newUp){
-        std::cout << *newUp;
+    auto resourcePointer {std::make_unique<Resource>()}; //pass in class name as a template argument.
+    if (resourcePointer){
+        std::cout << *resourcePointer << '\n';
     }
+    
     return 0;
 }

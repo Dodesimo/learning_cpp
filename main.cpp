@@ -13,13 +13,11 @@ public:
     }
 };
 
-template <typename T>
-void fetchResource(const std::unique_ptr<T> p){
-    std::cout << "resource: " << *p << '\n';
-}
-
 int main() {
-    auto resourcePointer {std::make_unique<Resource>()}; //pass in class name as a template argument.
-    fetchResource (std::move(resourcePointer));
-    return 0;
+    Resource* rPointer {new Resource()}; //put on the heap
+    std::shared_ptr<Resource> sp {rPointer};
+    {
+        std::cout << "nested made" << '\n'
+        std::shared_ptr<Resource> nested {sp};
+    }
 }

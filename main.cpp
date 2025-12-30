@@ -1,26 +1,33 @@
 #include <array>
 #include <iostream>
 #include <algorithm>
+#include <functional>
 
-class Teacher {
+class Patient;
+class Doctor {
     std::string name;
+    std::vector<std::reference_wrapper<const Patient>> patients {};
 public:
-    Teacher(std::string_view s): name {s} {};
-    const std::string_view getName() const {return name;}
+    Doctor(std::string_view n): name {n}{}
+    void addPatient(Patient& p); //declare
 };
 
-class Department {
-    const Teacher& t; //has a reference to teacher, doesn't actually own it?
+class Patient {
+    std::string name;
+    std::vector<std::reference_wrapper<const Doctor>> doctors {};
 public:
-    Department(const Teacher& teacher): t {teacher}{}
-};
-
-int main() {
-    Teacher t {"test"};
-    {
-        Department d {t}; //d doesn't own t
+    Patient(std::string_view n): name {n} {}
+    void addDoctor(const Doctor& d) {
+        doctors.push_back(d);
     }
-    //t still exists
-    std::cout << t.getName();
+    friend void Doctor::addPatient(Patient& p);
+};
+
+void Doctor::addPatient(Patient& p){
+    patients.push_back(p);
+    p.doctors.push_back(*this); 
+}
+
+int main(){
     return 0;
 }

@@ -1,33 +1,18 @@
-#include <array>
 #include <iostream>
-#include <algorithm>
-#include <functional>
 
-class Patient;
-class Doctor {
-    std::string name;
-    std::vector<std::reference_wrapper<const Patient>> patients {};
+class Point {
+    int x {};
+    int y {};
 public:
-    Doctor(std::string_view n): name {n}{}
-    void addPatient(Patient& p); //declare
-};
-
-class Patient {
-    std::string name;
-    std::vector<std::reference_wrapper<const Doctor>> doctors {};
-public:
-    Patient(std::string_view n): name {n} {}
-    void addDoctor(const Doctor& d) {
-        doctors.push_back(d);
+    Point (int x, int y): x {x}, y {x} {}
+    friend std::ostream& operator<< (std::ostream& s, const Point& p){ //example of a dependency (uses std::ostream without any member variable to do smth.)
+        s << p.x << '\n' << p.y;
+        return s;
     }
-    friend void Doctor::addPatient(Patient& p);
 };
 
-void Doctor::addPatient(Patient& p){
-    patients.push_back(p);
-    p.doctors.push_back(*this); 
+int main() {
+    Point p {2, 5};
+    std::cout << p;
 }
 
-int main(){
-    return 0;
-}

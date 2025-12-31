@@ -1,18 +1,16 @@
 #include <iostream>
 
-class A {
-public:
-    int p {1};
+class Base {
 protected:
-    int p2 {1};
-private:
-    int p3 {1};
+    int value {};
+public:
+    Base (int v): value {v}{}
+    void identify() const {std::cout << "base!" << '\n';}
 };
 
-class B : public A { //public inheriitance
-    B() {
-        p = 2; //valid because P is public
-        p2 = 1; //valid because P2 is protected (friends and derived can modify)
-        p3 = 2; //not possble because p3 is private
-    }
+class Derived: public Base {
+public:
+    Derived(int v): Base(v) {}
+    int getValue() const {return value;} //added feature
 };
+

@@ -1,31 +1,18 @@
 #include <iostream>
 
-class Person{
-    std::string name {};
-    int age {};
+class A {
 public:
-    Person() = default;
-    Person(std::string_view n, int a): name {n}, age {a} {}
-    int const getAge() {return age;}
+    int p {1};
+protected:
+    int p2 {1};
+private:
+    int p3 {1};
 };
 
-class BaseballPlayer : public Person {
-    //public inheritance
-    std::string team {};
-    int bA {};
-public:
-    BaseballPlayer() = default; //will use the default person constructor
-    BaseballPlayer(const std::string_view n, int a, const std::string_view t, int battingAvg):
-    Person(n, a),
-    team {t},
-    bA {a} {}
+class B : public A { //public inheriitance
+    B() {
+        p = 2; //valid because P is public
+        p2 = 1; //valid because P2 is protected (friends and derived can modify)
+        p3 = 2; //not possble because p3 is private
+    }
 };
-
-int main(){
-    BaseballPlayer b {}; //call default constructor
-    BaseballPlayer p {"Ted", 30, "Mets", 250};
-
-    std::cout << b.getAge() << '\n';
-    std::cout << p.getAge() << '\n';
-    return 0;
-}

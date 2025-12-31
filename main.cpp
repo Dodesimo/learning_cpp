@@ -11,6 +11,13 @@ public:
 class Derived: public Base {
 public:
     Derived(int v): Base(v) {}
-    int getValue() const {return value;} //added feature
 };
+
+int main () {
+    Base b {5};
+    Derived d {5};
+    b.identify();
+    d.identify();
+    return 0;
+}
 

@@ -11,6 +11,7 @@ public:
 class Derived: public Base {
 public:
     Derived(int v): Base(v) {}
+    void identify() const {std::cout << "derived" << '\n';}
 };
 
 int main () {

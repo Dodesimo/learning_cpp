@@ -1,28 +1,39 @@
 #include <iostream>
 
-class A {
+class Animal {
+protected:
+    Animal() {};
 public:
-    virtual std::string_view getName() const {return "A";}
+    virtual void saySmth() const {std::cout << "????" << '\n';}
 };
 
-class B : public A {
+class Dog : public Animal {
 public:
-    virtual std::string_view getName() const {return "B";}
+    Dog() {};
+    virtual void saySmth() const {std::cout << "Bark!" << '\n';}
 };
 
-class C : public B {
+class Cat : public Animal {
 public:
-    virtual std::string_view getName() const {return "C";}
+    Cat() {};
+    virtual void saySmth() const {std::cout << "mew!" << '\n';}
 };
 
-class D : public C {
-public:
-    virtual std::string_view getName() const {return "D";}
-};
+void sayingSmth(const Animal* a){
+    a->saySmth();
+}
 
 int main() {
-    C c {};
-    A& rBase { c };
-    std::cout << rBase.getName() << '\n';
-    return 0;
+    Dog a {};
+    Dog b {};
+    Dog c {};
+    
+    Cat aCat {};
+    Cat bCat {};
+    Cat cCat {};
+    
+    Animal* animals[] {&a, &b, &c, &aCat, &bCat, &cCat};
+    for (const auto& a : animals){
+        sayingSmth(a);
+    }
 }

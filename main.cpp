@@ -7,13 +7,13 @@ public:
 };
 
 class Derived : public Base {
-    using Base::print; //this makes all print functions from base eligible
 public:
-    void print(double a) {std::cout << "derived double";}
+    using Base::print; //this makes all print functions from base eligible
+    void print(double a) = delete;
 };
 
 int main() {
     Derived d {};
-    d.print(2); //incorrectly resolves to Derived::double, we want to use Base::int
+    static_cast<Base&>(d).print(2.0); //deleted function, can either static cast or Base:: scope specifier 
     return 0;
 }

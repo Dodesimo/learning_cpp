@@ -4,7 +4,7 @@ class Animal {
 protected:
     Animal() {};
 public:
-    virtual void saySmth() const {std::cout << "????" << '\n';}
+    virtual void saySmth() const final {std::cout << "????" << '\n';} //, use final to error out future overrides
 };
 
 class Dog : public Animal {

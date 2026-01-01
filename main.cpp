@@ -1,24 +1,28 @@
 #include <iostream>
 
-class Base {
-protected:
-    int value {};
+class A {
 public:
-    Base(int value): value {value} {}
-    std::string_view getName() const {return "Base";}
-    int getValue() const {return value;}
+    virtual std::string_view getName() const {return "A";}
 };
 
-class Derived: public Base{
+class B : public A {
 public:
-    Derived (int value): Base {value} {}
-    std::string_view getName() const {return "Derived";}
-    int getValueDoubled() const {return value * 2;}
+    virtual std::string_view getName() const {return "B";}
+};
+
+class C : public B {
+public:
+    virtual std::string_view getName() const {return "C";}
+};
+
+class D : public C {
+public:
+    virtual std::string_view getName() const {return "D";}
 };
 
 int main() {
-    Derived d {5};
-    Derived* dPoint {&d};
-    std::cout << "value: " << dPoint->getValue() << '\n';
+    C c {};
+    A& rBase { c };
+    std::cout << rBase.getName() << '\n';
     return 0;
 }

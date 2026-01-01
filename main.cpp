@@ -1,25 +1,20 @@
 #include <iostream>
 
-class A {
+class Base {
 public:
-    A() {std::cout << "Constructor for A" << '\n';}    
+    virtual void printNumber() {std::cout << 2;}
 };
 
-class B : virtual public A{
+class Derived : public Base {
 public:
-    B() {std::cout << "Constructor for B" << '\n';}    
+    virtual void printNumber() override {std::cout << 45;}
 };
 
-class C : virtual public A {
-public:
-    C() {std::cout << "Constructor for C" << '\n';}    
-};
+void execute(Base b){
+    b.printNumber();
+}
 
-class D : public B, C {
-public:
-    D() {std::cout << "Constructor for D" << '\n';}    
-};
-
-int main () {
-    D d {};
+int main (){
+    Derived d {};
+    execute(d); //object slicing
 }

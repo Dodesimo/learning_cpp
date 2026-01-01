@@ -1,24 +1,19 @@
 #include <iostream>
 
 class Base {
-protected:
-    int value {};
 public:
-    Base (int v): value {v}{}
-    void identify() const {std::cout << "base!" << '\n';}
+    void print(int a) {std::cout << "base int" << '\n';}
+    void print(double a){std::cout << "base double" << '\n';}
 };
 
-class Derived: public Base {
+class Derived : public Base {
+    using Base::print; //this makes all print functions from base eligible
 public:
-    Derived(int v): Base(v) {}
-    void identify() const {std::cout << "derived" << '\n'; Base::identify();} //call base class.
+    void print(double a) {std::cout << "derived double";}
 };
 
-int main () {
-    Base b {5};
-    Derived d {5};
-    b.identify();
-    d.identify();
+int main() {
+    Derived d {};
+    d.print(2); //incorrectly resolves to Derived::double, we want to use Base::int
     return 0;
 }
-

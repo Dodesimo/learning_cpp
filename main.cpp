@@ -1,24 +1,25 @@
 #include <iostream>
 
-class Base {
+class A {
 public:
-    virtual int getValue() const = 0; //pure virtual function
+    A() {std::cout << "Constructor for A" << '\n';}    
 };
 
-int Base::getValue() const {
-    return 5;
-}
-
-class A : public Base {
+class B : public A{
 public:
-    virtual int getValue () const override {
-        return Base::getValue();
-    }
+    B() {std::cout << "Constructor for B" << '\n';}    
 };
 
-int main() {
-    A a {};
-    Base& b {a};
-    std::cout << b.getValue(); //will resolve to class A's
-    return 0;
+class C : public A {
+public:
+    C() {std::cout << "Constructor for C" << '\n';}    
+};
+
+class D : public B, C {
+public:
+    D() {std::cout << "Constructor for D" << '\n';}    
+};
+
+int main () {
+    D d {};
 }

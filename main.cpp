@@ -10,13 +10,13 @@ public:
 class Dog : public Animal {
 public:
     Dog() {};
-    virtual void saySmth() const {std::cout << "Bark!" << '\n';}
+    void saySmth() const override {std::cout << "Bark!" << '\n';} //better way to denote a virtual function
 };
 
 class Cat : public Animal {
 public:
     Cat() {};
-    virtual void saySmth() const {std::cout << "mew!" << '\n';}
+    void saySmth() const override {std::cout << "mew!" << '\n';} //better way to denote a virtual function.
 };
 
 void sayingSmth(const Animal* a){

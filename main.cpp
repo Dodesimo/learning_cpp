@@ -1,24 +1,23 @@
+#include <string_view>
 #include <iostream>
 
 class Base {
 public:
-    Base() = default;
-    virtual ~Base() {
-        std::cout << "Base deletion";
-    }
+    std::string_view getName() const {return "Base";}
+    virtual std::string_view getNameVirtual() const {return "Base";}
 };
 
 class Derived : public Base {
 public:
-    Derived() = default;
-    ~Derived() override {
-        std::cout << "derived deletion";
-    }
+    std::string_view getName() const {return "Derived";}
+    virtual std::string_view getNameVirtual() const override {return "derived";}
 };
 
 int main() {
-    Derived* d {new Derived()};
-    Base* b {d};
-    delete d;
-    return 0;
+    Derived derived {};
+    Base& base {derived};
+
+    std::cout << "base has a static type " << base.getName() << '\n'; //should be base
+    std::cout << "base has a dynamic type " << base.getNameVirtual() << '\n'; //should be derived
+
 }

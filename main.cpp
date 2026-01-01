@@ -1,19 +1,24 @@
 #include <iostream>
 
 class Base {
+protected:
+    int value {};
 public:
-    void print(int a) {std::cout << "base int" << '\n';}
-    void print(double a){std::cout << "base double" << '\n';}
+    Base(int value): value {value} {}
+    std::string_view getName() const {return "Base";}
+    int getValue() const {return value;}
 };
 
-class Derived : public Base {
+class Derived: public Base{
 public:
-    using Base::print; //this makes all print functions from base eligible
-    void print(double a) = delete;
+    Derived (int value): Base {value} {}
+    std::string_view getName() const {return "Derived";}
+    int getValueDoubled() const {return value * 2;}
 };
 
 int main() {
-    Derived d {};
-    static_cast<Base&>(d).print(2.0); //deleted function, can either static cast or Base:: scope specifier 
+    Derived d {5};
+    Derived* dPoint {&d};
+    std::cout << "value: " << dPoint->getValue() << '\n';
     return 0;
 }

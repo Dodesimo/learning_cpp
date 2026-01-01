@@ -5,10 +5,14 @@ public:
     virtual int getValue() const = 0; //pure virtual function
 };
 
+int Base::getValue() const {
+    return 5;
+}
+
 class A : public Base {
 public:
     virtual int getValue () const override {
-        return 2;
+        return Base::getValue();
     }
 };
 

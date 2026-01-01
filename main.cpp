@@ -5,12 +5,12 @@ public:
     A() {std::cout << "Constructor for A" << '\n';}    
 };
 
-class B : public A{
+class B : virtual public A{
 public:
     B() {std::cout << "Constructor for B" << '\n';}    
 };
 
-class C : public A {
+class C : virtual public A {
 public:
     C() {std::cout << "Constructor for C" << '\n';}    
 };

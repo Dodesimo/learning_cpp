@@ -10,7 +10,7 @@ public:
     virtual void printNumber() override {std::cout << 45;}
 };
 
-void execute(Base b){
+void execute(Base& b){
     b.printNumber();
 }
 

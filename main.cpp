@@ -2,19 +2,19 @@
 
 class Base {
 public:
-    virtual void printNumber() {std::cout << 2;}
+    Base() {}
+    int getNumber() {return 2.0;}
+    virtual ~Base() {}
 };
 
 class Derived : public Base {
 public:
-    virtual void printNumber() override {std::cout << 45;}
+    Derived() {};
+    double getDouble() {return 21.0;}
 };
 
-void execute(Base& b){
-    b.printNumber();
-}
-
-int main (){
+int main() {
     Derived d {};
-    execute(d); //object slicing
+    Base* b {&d};
+    std::cout << (dynamic_cast<Derived*>(b))->getDouble();
 }

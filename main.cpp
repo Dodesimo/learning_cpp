@@ -1,30 +1,13 @@
-#include <iostream>
-
-template <typename T>
-class GenericArray {
-    T* array {};
-    int length {};
+template <int size>
+class Foo {
+    int value {};
 public:
-    GeneralArray(l): length {l} {
-        assert(l > 0); //see if of size
-        array = new T[length] {};
-    }
-    Array (const Array& other) = delete; //disable copy constructor
-    Array& operator=(const Array& other) = delete; //disable copy assignment
-
-    ~GeneralArray(){
-        delete[] array;
-    }
-
-    void erase() {
-        delete[] array;
-        array = nullptr;
-        length = 0;
-    }
-
-    int getLength() const {return length;}
-
-    T& operator[] (int index) {
-        return array[index];
-    }
+    Foo(): value {size} {} //allows us to initialize a const expr
 };
+
+int main() {
+    int x {5};
+    Foo<x> a {}; //this doesn't work because x is not constexpr
+    constexpr int y {5}; 
+    Foo<y> b {}; //this works because y is explicitly constexpr
+}

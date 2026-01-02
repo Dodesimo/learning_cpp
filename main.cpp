@@ -1,13 +1,23 @@
-template <int size>
-class Foo {
-    int value {};
-public:
-    Foo(): value {size} {} //allows us to initialize a const expr
-};
+#include <iostream>
+
+template <typename T>
+void print(const T& obj){
+    std::cout << "template function called";
+}
+
+//we want to define specific one for double
+template<>
+void print<double> (const double& obj){
+    std::cout << "specific to double";
+}
 
 int main() {
-    int x {5};
-    Foo<x> a {}; //this doesn't work because x is not constexpr
-    constexpr int y {5}; 
-    Foo<y> b {}; //this works because y is explicitly constexpr
+    //use the specialized function template 
+    double d {2.0};
+    print(d);
+
+    int i {4};
+    print(i);
+
+    return 0;
 }

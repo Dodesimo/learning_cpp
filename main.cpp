@@ -1,23 +1,24 @@
 #include <iostream>
 
 template <typename T>
-void print(const T& obj){
-    std::cout << "template function called";
-}
+class Storage {
+    T array[8];
+public:
+    void set (T index, const T& value) {
+        array[index] = value;
+    }
 
-//we want to define specific one for double
-template<>
-void print<double> (const double& obj){
-    std::cout << "specific to double";
-}
+    const T& get (T index) const{
+        return array[index];
+    }
+};
 
 int main() {
-    //use the specialized function template 
-    double d {2.0};
-    print(d);
-
-    int i {4};
-    print(i);
-
-    return 0;
+    Storage<int> s {};
+    for (auto i {0}; i < 8; ++i) {
+        s.set(i, i);
+    }
+    for (auto i {0}; i < 8; ++i) {
+        std::cout << s.get(i) << '\n';
+    }
 }

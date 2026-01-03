@@ -1,19 +1,20 @@
 #include <iostream>
+
+int doubleNumber (int x) {
+    return x * 2;
+}
+
 int main() {
-    int number {};
-    std::cout << "Enter a number: ";
-    std::cin >> number;
+    int n {};
+    std::cin >> n;
+    
     try {
-        if (number < 0) {
-            throw "Can't have a negative number!";
+        if (n < 0) {
+            throw "fade";
         }
+    } catch (...)  {
+        std::cerr << "negative number!";
+    } //catch all exception handler
 
-        std::cout << "doubled number: " << number * 2;
-        return 0;
-        
-    } catch (const char* error) {
-
-        std::cout << error << '\n';
-        
-    }
+    return 0;
 }

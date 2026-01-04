@@ -3,9 +3,7 @@
 
 int main() {
     //can manually open stuff
-    std::ofstream output {"text.txt"};
-    output.close();
-    output.open("text.txt", std::ios::app); //append mode
-    output << "test";
-    output.close();
+    std::ifstream output {"text.txt"};
+    output.seekg(0, std::ios::end); //go to the end of the file
+    std::cout << output.tellg(); //will tell us the number of bytes
 }

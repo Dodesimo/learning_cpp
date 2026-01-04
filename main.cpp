@@ -2,6 +2,7 @@
 #include <iomanip>
 
 int main() {
-    std::cout.setf(std::ios::hex, std::ios::basefield); //within the basefield set of flags, turn everything off and turn hex on
-    std::cout << 28;
+    std::cout << std::hex << 27 << '\n';
+    std::cout << 181 << '\n';
+    std::cout << std::dec << 18;
 }

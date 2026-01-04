@@ -1,8 +1,10 @@
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 int main() {
-    std::cout << std::hex << 27 << '\n';
-    std::cout << 181 << '\n';
-    std::cout << std::dec << 18;
+    std::stringstream os {};
+    os << "test"; //put in
+    os.str("testing more"); //put string literal in
+    std::cout << '\n' << os.str(); 
 }

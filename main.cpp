@@ -1,26 +1,34 @@
 #include <iostream>
+#include <stdexcept>
 
-class A {
-    int member {};
+class Fraction {
+    int numerator {};
+    int denominator{};
+
 public:
-    A (int x): member {x} {
-
-        if (x < 0) {
-            throw 1;
+    Fraction(int n, int d): numerator {n}, denominator {d} {
+        if (denominator == 0) {
+            throw std::runtime_error("Denominator cannot be 0");
         }
-
-    };
-};
-
-class B : public A {
-public:
-    B (int x) : A {x} {}
-};
-
-int main () {
-    try {
-        A a {-5};
-    } catch (int x) {
-        std::cout << x;
     }
+
+    void print() {std::cout << numerator << '/' << denominator;}
+};
+
+int main() {
+    std::cout << "Enter the numerator: ";
+    int n {};
+    std::cin >> n;
+
+    std::cout << "Enter the denominator: ";
+    int d {};
+    std::cin >> d;
+    
+    try {
+        Fraction f {n, d};
+        f.print();
+    } catch (const std::runtime_error& r) {
+        std::cout << "invalid denominator";
+    }
+
 }

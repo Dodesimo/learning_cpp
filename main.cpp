@@ -2,14 +2,12 @@
 #include <fstream>
 
 int main() {
-    std::ofstream file {"text.txt"};
-    try {
-        if (!file) {
-            throw "error";
-        } 
-        file << "test \n";
-        file << "test \n";
-     }catch (const char* error) {
-        std::cout << "error opening file";
+    std::ifstream a {"text.txt"};
+    if (!a) {return 1;}
+    std::string input {};
+    //while we can still extract
+    while (a >> input) { //this gets each possible individual token from the stream and puts them into the variable
+        std::cout << input << '\n';
     }
+    return 0;
 }

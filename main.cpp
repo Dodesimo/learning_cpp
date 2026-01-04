@@ -6,7 +6,7 @@ int main() {
     if (!a) {return 1;}
     std::string input {};
     //while we can still extract
-    while (a >> input) { //this gets each possible individual token from the stream and puts them into the variable
+    while (std::getline(a, input)) { //this gets each line
         std::cout << input << '\n';
     }
     return 0;

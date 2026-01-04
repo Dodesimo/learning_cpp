@@ -4,12 +4,11 @@
 
 int main() {
     std::stringstream os {};
-    os << "test"; //put in
-    os.str("testing more"); //put string literal in
-    std::string first {};
-    std::string second {};
-    os >> first;
-    os >> second;
-    std::cout << first << '\n';
-    std::cout << second << '\n';
+    os << "123231" << '\n';
+    os << "129090321" << '\n';
+    int a {};
+    int b {};
+    os >> a >> b;
+    std::cout << a << '\n';
+    std::cout << b;
 }
